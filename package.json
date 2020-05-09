@@ -5,14 +5,15 @@
     "url": "https://ninoschelcher.nl"
   },
   "license": "ISC",
-  "name": "boilerplate-blok-tech-dating-app",
+  "name": "dating-app-feature",
   "version": "1.0.0",
-  "description": "Boilerplate for blok tech dating app",
+  "description": "Feature for dating app",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
   "devDependencies": {
+    "camelcase": "^6.0.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
