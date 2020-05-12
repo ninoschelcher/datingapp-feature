@@ -4,6 +4,7 @@
 
 *, ::before, ::after {
     box-sizing: border-box;
+    font-family: var(--main);
 }
 
 :root {
@@ -16,6 +17,8 @@
     --purple-navy: #414770;
     --black: #000000;
     --white: #FFFFFF;
+    --main: "Red Hat Display", sans-serif;
+    --secondary: "Zilla Slab", sans-serif;
 }
 
 ul {
@@ -31,30 +34,31 @@ body {
     height: 100vh;
 }
 
-/* Header */
-header {
+/* Index */
+
+#index header {
     padding: 2em 4em;
     position: absolute;
     z-index: 1;
     width: 100%;
 }
 
-header nav ul {
+#index header nav ul {
     display: flex;
     align-items: center;
 }
 
-header nav ul li:last-child {
+#index header nav ul li:last-child {
     margin-left: auto;
 }
 
-header nav ul li img {
+#index header nav ul li img {
     max-width: 12em;
 }
 
-header nav ul li a {
+#index header nav ul li a {
     text-decoration: none;
-    font-family: "Red Hat Display";
+    font-family: var(--main);
     color: var(--orange);
     background-color: var(--white);
     padding: 1em 2em;
@@ -62,8 +66,7 @@ header nav ul li a {
     font-size: 1.1em;
 }
 
-/*Body */
-body.home section {
+body#index section {
     /* https://www.pexels.com/nl-nl/foto/stad-mode-man-paar-3775605/ */
     background-image: url('../images/bannerimage.jpg');
     height: 100vh;
@@ -72,10 +75,10 @@ body.home section {
     background-size: cover;
     text-align: center;
     position: relative;
-    z-index: 0;  
+    z-index: 0;
 }
 
-body.home section::after {
+body#index section::after {
     position: absolute;
     content: "";
     top: 0;
@@ -83,34 +86,34 @@ body.home section::after {
     right: 0;
     bottom: 0;
     background-color: rgb(244, 132, 95, 0.2);
-    z-index:-1;
+    z-index: -1;
 }
 
-body.home section {
+body#index section {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-body.home section article h1 {
-    font-family: "Red Hat Display", sans-serif;
+body#index section article h1 {
+    font-family: var(--main);
     margin: 0;
     color: var(--white);
     font-size: 5em;
 }
 
-body.home section article p {
+body#index section article p {
     color: var(--white);
-    font-family: "Zilla Slab";
+    font-family: var(--secondary);
 }
 
-body.home section article p:last-child {
-    margin-top:2em;
+body#index section article p:last-child {
+    margin-top: 2em;
 }
 
-body.home section article a {
+body#index section article a {
     text-decoration: none;
-    font-family: "Red Hat Display";
+    font-family: var(--main);
     color: var(--white);
     background-color: var(--orange);
     padding: 1em 2em;
@@ -118,3 +121,250 @@ body.home section article a {
     font-size: 1.1em;
 }
 
+/* Login */
+
+body#login {
+    background-image: url('../images/loginimage.jpg');
+    background-size: cover;
+    background-position: left;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+body#login>section {
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2em 4.5em;
+    border-radius: 10px;
+}
+
+body#login>section img {
+    width: 12em;
+    margin-bottom: .6em;
+}
+
+body#login>section form {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #b1b1b1;
+    padding-bottom: 1.5em
+}
+
+body#login>section form label {
+    font-family: var(--main);
+    padding-bottom: .4em;
+}
+
+body#login>section form input {
+    margin-bottom: 1.5em;
+    width: 190px;
+    height: 30px;
+}
+
+body#login>section form button {
+    text-decoration: none;
+    border: none;
+    width: 190px;
+    height: 40px;
+    background-color: var(--orange);
+    color: var(--white);
+    font-family: var(--main);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+body#login>section p {
+    font-family: var(--main);
+}
+
+body#login>section a:last-of-type {
+    background-color: var(--steel-blue);
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--main);
+    padding: .7em 4em;
+}
+
+/* Profile Setup Steps */
+
+.profilesteps {
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2em 0;
+}
+
+.profilesteps header {
+    text-align: center;
+}
+
+.profilesteps header img {
+    max-width: 10em;
+}
+
+.profilesteps>section {
+    padding: 2em;
+    margin-top: 2em;
+    display: flex;
+    border-radius: 10px;
+    width: 50%;
+    justify-content: space-evenly;
+    box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
+}
+
+.profilesteps>section > div:first-of-type {
+    width: 60%;
+    padding-right: 1em;
+}
+
+.profilesteps>section h1 {
+    color: var(--orange);
+}
+
+.profilesteps>section div:first-of-type p:last-of-type {
+    max-width: 70%;
+    font-family: var(--secondary);
+}
+
+.profilesteps>section>div:last-of-type {
+    width: 40%;
+    padding-right: 2em;
+}
+
+.profilesteps>section div:last-of-type form {
+    display: flex;
+    flex-direction: column;
+    margin-top:1em;
+}
+
+.profilesteps>section div:last-of-type form label {
+    margin-bottom: .5em;
+}
+
+.profilesteps>section div:last-of-type form input {
+    margin-bottom: 1.2em;
+    height: 35px;
+}
+
+.profilesteps ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profilesteps li {
+    margin: .6em .7em .3em 0;
+    width: 80px;
+    height: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.profilesteps ul li label, .profilesteps ul li input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.profilesteps input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+}
+
+.profilesteps input[type="radio"]:checked+label, .checked+label {
+    background-color: var(--orange);
+    color:var(--white);
+    transition:.3s;
+}
+
+.profilesteps form .radios label:not(:first-child) {
+    padding: 7px 5px 5px 5px;
+    border: 1px solid var(--orange);
+    cursor: pointer;
+    z-index: 90;
+}
+
+/* Profile Individual steps */
+
+.steps {
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2em 0;
+}
+
+.steps header {
+    text-align: center;
+}
+
+.steps header img {
+    max-width: 10em;
+}
+
+.steps>section {
+    padding: 2em;
+    margin-top: 2em;
+    max-width: 30%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
+}
+
+.steps>section h1 {
+    font-size: 1.7em;
+    margin: .5em 0;
+}
+
+.steps>section p:nth-child(3) {
+    font-size: 1em;
+    margin: .5em 0;
+    font-family: var(--secondary);
+}
+
+.steps ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.steps li {
+    margin: .6em .7em .3em 0;
+    width: 100px;
+    height: 150px;
+    position: relative;
+    flex: 0 40%;
+    text-align: center;
+}
+
+.steps ul li label, .steps ul li input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.steps input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+}
+
+.steps input[type="radio"]:checked+label, .checked+label {
+    border: 2px solid green;
+}
+
+.steps label {
+    padding: 5px;
+    border: 2px solid #CCC;
+    cursor: pointer;
+    z-index: 90;
+}
