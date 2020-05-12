@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetyou &mdash; Setting up profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/7433735f67.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="profilesteps">
+    <header>
+        <a href="/"><img src="images/logo1.png" alt=""></a>
+    </header>
+    <section>
+        <div>
+            <p>Step 1/6</p>
+            <h1>Hi 👋 Tell us about yourself..</h1>
+            <p>Welcome to MeetYou. Firstly we want to know some basic stuff about you. After this we're gonna give you a
+                few scenarios to answer.
+            </p>
+        </div>
+        <div>
+            <form action="step2.html">
+                <label for="firstname">First Name</label>
+                <input id="lastname" type="text">
+                <label for="lastname">Last Name</label>
+                <input id="lastname" type="text">
+                <label for="age">Age</label>
+                <input id="age" type="text">
+                <div class="radios">
+                    <label for="gender">Gender</label>
+                    <ul>
+                        <li>
+                            <input id="gender1" name="gender" type="radio">
+                            <label for="gender1">Male</label>
+                        </li>
+                        <li>
+                            <input id="gender2" name="gender" type="radio">
+                            <label for="gender2">Female</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="radios">
+                    <label for="preferredgender">Preferred Gender</label>
+                    <ul>
+                        <li>
+                            <input id="pref1" name="preferredgender" type="radio">
+                            <label for="pref1">Male</label>
+                        </li>
+                        <li>
+                            <input id="pref2" name="preferredgender" type="radio">
+                            <label for="pref2">Female</label>
+                        </li>
+                        <li>
+                            <input id="pref3" name="preferredgender" type="radio">
+                            <label for="pref3">Both</label>
+                        </li>
+                    </ul>
+                </div>
+                <button>Next</button>
+            </form>
+        </div>
+    </section>
+    <script src="../server.js"></script>
+</body>
+
+</html>
