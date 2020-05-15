@@ -1,0 +1,30 @@
+<%- include ("partials/head.ejs"); %>
+<%- include ("partials/menu.ejs"); %>
+
+<section>
+    <article>
+        <p>Step 2/6</p>
+        <h1>You and exercising</h1>
+        <p>How do you feel about exercising, <%= name %>? Are you working out a lot? Tell us about it. Dont worry, there is no
+            wrong answer.
+        </p>
+        <article>
+            <form action="">
+                <ul>
+                    <% for(let index = 0; index < answers.length; index++ ) { %>
+                        <li>
+                            <input id="option<%= index %>" name="option" type="radio">
+                            <label for="option<%= index %>"><%= answers[index] %></label>
+                        </li>                        
+                        <% } %>
+                </ul>
+                <nav>
+                    <a href="profile.html">Profile</a>
+                    <a href="#">Next</a>
+                </nav>
+            </form>
+        </article>
+    </article>
+</section>
+
+<%- include ("partials/footer.ejs"); %>
