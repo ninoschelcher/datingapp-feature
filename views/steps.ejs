@@ -13,7 +13,7 @@
                 <ul>
                     <% for(let index = 0; index < answers.length; index++ ) { %>
                         <li>
-                            <input id="option<%= index %>" name="option" type="radio">
+                            <input id="option<%= index %>" name="option" type="radio" value="<%= index %>">
                             <label for="option<%= index %>"><%= answers[index] %></label>
                         </li>                        
                         <% } %>
