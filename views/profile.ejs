@@ -1,0 +1,18 @@
+<%- include ("partials/head") %>
+<%- include ("partials/menu") %>
+
+<body class="profile">
+    <section>
+        <div>
+            <h1>Hi <%= data.firstname %></h1>
+            <p>This is the data you've filled in</p>
+            <p>First Name: <%= data.firstname %></p>
+            <p>Last Name: <%= data.lastname %></p>
+            <p>Age: <%= data.age %></p>
+            <p>Gender: <%= data.gender %></p>
+            <p>Looking for: <%= data.lookingfor %></p>
+        </div>
+
+    </section>
+
+    <%- include ("partials/footer") %>

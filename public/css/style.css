@@ -34,6 +34,10 @@ body {
     height: 100vh;
 }
 
+header img {
+    max-width: 10em;
+}
+
 /* Index */
 
 #index header {
@@ -193,7 +197,7 @@ body#login>section a:last-of-type {
 
 /* Profile Setup Steps */
 
-.profilesteps {
+.introduction, .profile {
     background-color: var(--orange);
     display: flex;
     align-items: center;
@@ -201,15 +205,11 @@ body#login>section a:last-of-type {
     padding-top: 2em;
 }
 
-.profilesteps header {
+.introduction header, .profile header {
     text-align: center;
 }
 
-.profilesteps header img {
-    max-width: 10em;
-}
-
-.profilesteps>section {
+.introduction>section, .profile>section {
     padding: 2em;
     margin-top: 2em;
     display: flex;
@@ -220,46 +220,46 @@ body#login>section a:last-of-type {
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
 }
 
-.profilesteps>section>div:first-of-type {
+.introduction>section>div:first-of-type {
     width: 60%;
     padding-right: 1em;
 }
 
-.profilesteps>section h1 {
+.introduction>section h1 {
     color: var(--orange);
 }
 
-.profilesteps>section div:first-of-type p:last-of-type {
+.introduction>section div:first-of-type p:last-of-type {
     max-width: 70%;
     font-family: var(--secondary);
 }
 
-.profilesteps>section>div:last-of-type {
+.introduction>section>div:last-of-type {
     width: 40%;
     padding-right: 2em;
 }
 
-.profilesteps>section div:last-of-type form {
+.introduction>section div:last-of-type form {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
 }
 
-.profilesteps>section div:last-of-type form label {
+.introduction>section div:last-of-type form label {
     margin-bottom: .5em;
 }
 
-.profilesteps>section div:last-of-type form input {
+.introduction>section div:last-of-type form input {
     margin-bottom: 1.2em;
     height: 35px;
 }
 
-.profilesteps ul {
+.introduction ul {
     display: flex;
     flex-wrap: wrap;
 }
 
-.profilesteps li {
+.introduction li {
     margin: .6em .7em .3em 0;
     width: 80px;
     height: 50px;
@@ -267,7 +267,7 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.profilesteps ul li label, .profilesteps ul li input {
+.introduction ul li label, .introduction ul li input {
     display: block;
     position: absolute;
     top: 0;
@@ -276,32 +276,36 @@ body#login>section a:last-of-type {
     bottom: 0;
 }
 
-.profilesteps input[type="radio"] {
+.introduction input[type="radio"] {
     opacity: 0.01;
     z-index: 100;
 }
 
-.profilesteps input[type="radio"]:checked+label, .checked+label {
+.introduction input[type="radio"]:checked+label, .checked+label {
     background-color: var(--orange);
     color: var(--white);
     transition: .3s;
 }
 
-.profilesteps form .radios label:not(:first-child) {
+.introduction form .radios label:not(:first-child) {
     padding: 7px 5px 5px 5px;
     border: 1px solid var(--orange);
     cursor: pointer;
     z-index: 90;
 }
 
-.profilesteps a {
+.introduction button {
     text-decoration:none;
     color:var(--steel-blue);
     position:relative;
     text-align:right;
+    border:none;
+    font-size:1em;
+    outline: none;
+    cursor:pointer;
 }
 
-.profilesteps section a:last-of-type::after {
+.introduction section button:last-of-type::after {
     content:'\f30b';
     position: absolute;
     display: block;
@@ -431,7 +435,7 @@ body#login>section a:last-of-type {
 }
 
 @media only screen and (max-width:1280px) {
-    .profilesteps>section {
+    .introduction>section {
         max-width: 70%;
     }
     .steps>section {
@@ -440,16 +444,16 @@ body#login>section a:last-of-type {
 }
 
 @media only screen and (max-width:992px) {
-    .profilesteps>section, .steps>section {
+    .introduction>section, .steps>section {
         flex-direction: column;
     }
     .steps li {
         flex: 0 45%;
     }
-    .profilesteps>section>div {
+    .introduction>section>div {
         width: 100% !important;
     }
-    .profilesteps>section div:first-of-type p:last-of-type {
+    .introduction>section div:first-of-type p:last-of-type {
         max-width: 100%;
     }
 }
