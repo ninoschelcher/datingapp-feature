@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include ("partials/head") %>
+<%- include ("partials/menu") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meetyou &mdash; Setting up profile</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-</head>
+<body class="introduction">
 
-<body class="profilesteps">
-    <header>
-        <a href="/"><img src="images/logo2.png" alt=""></a>
-    </header>
     <section>
         <div>
             <p>Step 1/6</p>
@@ -23,22 +12,22 @@
             </p>
         </div>
         <div>
-            <form action="step2.html">
+            <form method="POST" action="/">
                 <label for="firstname">First Name</label>
-                <input id="lastname" type="text">
+                <input required id="firstname" name="firstname" type="text">
                 <label for="lastname">Last Name</label>
-                <input id="lastname" type="text">
+                <input required id="lastname" name="lastname" type="text">
                 <label for="age">Age</label>
-                <input id="age" type="text">
+                <input required id="age" name="age" type="text">
                 <div class="radios">
                     <label for="gender">Gender</label>
                     <ul>
                         <li>
-                            <input id="gender1" name="gender" type="radio">
+                            <input id="gender1" name="gender" type="radio" value="male">
                             <label for="gender1">Male</label>
                         </li>
                         <li>
-                            <input id="gender2" name="gender" type="radio">
+                            <input id="gender2" name="gender" type="radio" value="female">
                             <label for="gender2">Female</label>
                         </li>
                     </ul>
@@ -47,24 +36,22 @@
                     <label for="preferredgender">Looking for</label>
                     <ul>
                         <li>
-                            <input id="pref1" name="preferredgender" type="radio">
+                            <input  id="pref1" name="preferredgender" type="radio" value="male">
                             <label for="pref1">Male</label>
                         </li>
                         <li>
-                            <input id="pref2" name="preferredgender" type="radio">
+                            <input required id="pref2" name="preferredgender" type="radio" value="female">
                             <label for="pref2">Female</label>
                         </li>
                         <li>
-                            <input id="pref3" name="preferredgender" type="radio">
+                            <input required id="pref3" name="preferredgender" type="radio" value="both">
                             <label for="pref3">Both</label>
                         </li>
                     </ul>
                 </div>
-                <a href="steps">Next</a>
+                <button> Next </button>
             </form>
         </div>
     </section>
-    <script src="../server.js"></script>
-</body>
 
-</html>
+    <%- include ("partials/footer") %>
