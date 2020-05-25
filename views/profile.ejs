@@ -6,11 +6,14 @@
         <div>
             <h1>Hi <%= data.firstname %></h1>
             <p>This is the data you've filled in</p>
-            <p>First Name: <%= data.firstname %></p>
-            <p>Last Name: <%= data.lastname %></p>
-            <p>Age: <%= data.age %></p>
-            <p>Gender: <%= data.gender %></p>
-            <p>Looking for: <%= data.lookingfor %></p>
+            <form action="/updateuser" method="POST">
+                <p><span>First name:</span> <input type="text" value="<%= data.firstname %>"> </p>
+                <p><span>Last name:</span> <input type="text" value="<%= data.lastname %>"> </p>
+                <p><span>Age:</span> <input type="number" value="<%= data.age %>"> </p>
+                <p><span>Gender:</span> <input type="text" value="<%= data.gender %>"> </p>
+                <p><span>Looking for:</span> <input type="text" value="<%= data.preferredgender %>"> </p>
+                <button>Save</button>
+            </form>
         </div>
 
     </section>
