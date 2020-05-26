@@ -1,6 +1,7 @@
 <header>
     <nav>
         <a href="/"><img src="images/logo2.png" alt=""></a>
+        <% if(page != 'Introduction')  { %>
         <div>
             <ul>
                 <a href="#">
@@ -9,10 +10,11 @@
                 <a href="#">
                     <li><img src="images/matches.png" alt="matches"></li>
                 </a>
-                <a href="#">
+                <a href="<%= data._id %>">
                     <li><img src="images/profile.png" alt="profile"></li>
                 </a>
             </ul>
         </div>
+        <% } %>
     </nav>
 </header>

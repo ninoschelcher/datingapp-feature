@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable object-shorthand */
 /* eslint-disable max-len */
@@ -12,6 +13,7 @@ const bodyParser = require('body-parser');
 const find = require('array-find');
 const mongo = require('mongodb');
 const { ObjectID } = require('mongodb');
+const session = require('express-session');
 require('dotenv').config();
 
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`;
@@ -26,6 +28,7 @@ mongo.MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true
   db = client.db(process.env.DB_NAME);
 });
 
+
 const answers = [
   'Never, im lazy',
   'Sometimes',
@@ -36,13 +39,15 @@ const answers = [
 /* Express chain routes and other stuff */
 app
   .use(express.static(`${__dirname}/public`))
-  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.urlencoded({ extended: false }))
+  .use(bodyParser.json())
+  .use(session({ secret: '4nd912nd891nde82' }))
   .set('view engine', 'ejs')
-  .get('/steps', steps)
-  .get('/introduction', introduction)
-  .get('/:id', getUserProfile)
   .post('/', introductionForm)
   .post('/updateuser', updateUserProfile)
+  .get('/step2', loadStep2)
+  .get('/introduction', introduction)
+  .get('/:id', getUserProfile)
   .use((req, res) => {
     res.status(404).send('404 Page not found');
   })
@@ -50,8 +55,8 @@ app
 
 /* First ejs test for the process of telling
 more about your goals and interest */
-function steps(req, res) {
-  res.render('steps.ejs', {
+function loadStep2(req, res) {
+  res.render('step2.ejs', {
     page: 'Step 2',
     data: answers,
     name: 'Nino',
@@ -60,19 +65,35 @@ function steps(req, res) {
 }
 
 // Render the introduction page
-function introduction(req, res) {
+function introduction(req, res, data) {
+  req.session.name = data._id;
   res.render('introduction.ejs', {
     page: 'Introduction',
     class: 'introduction',
   });
 }
 
-// Function that picks up the filled in form and pushes
-// all the data to the array,
-// after that you get redirected to the next step
+/* Function that sends the data filled in by the user to mongodb */
+function introductionForm(req, res, next) {
+  db.collection('users').insertOne({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    age: req.body.age,
+    gender: req.body.gender,
+    preferredgender: req.body.preferredgender,
+  }, profileRedirect);
 
+  function profileRedirect(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      console.log(data.insertedId);
+      res.redirect(`/${data.insertedId}`);
+    }
+  }
+}
 
-// Function that renders a page with the specific
+// Function that renders a page with the specific profile of a specific user
 function getUserProfile(req, res, next) {
   const { id } = req.params;
 
@@ -89,41 +110,25 @@ function getUserProfile(req, res, next) {
   }
 }
 
-function introductionForm(req, res, next) {
-  db.collection('users').insertOne({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    age: req.body.age,
-    gender: req.body.gender,
-    lookingfor: req.body.preferredgender,
-  }, profileRedirect);
-
-  function profileRedirect(err, data) {
-    if (err) {
-      next(err);
-    } else {
-      res.redirect(`/${data.insertedId}`);
-    }
-  }
-}
-
+/* Function that updates the fields from the profile page */
 function updateUserProfile(req, res, next) {
-  db.collection('users').updateOne({
-    _id: ObjectID(req.body._id),
-    $set: {
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      age: req.body.age,
-      gender: req.body.gender,
-      lookingfor: req.body.preferredgender,
-    },
-  }, updatePage);
+  console.log(req.body._id);
+  db.collection('users').updateOne({ _id: ObjectID(req.body._id) },
+    {
+      $set: {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        age: req.body.age,
+        gender: req.body.gender,
+        preferredgender: req.body.preferredgender,
+      },
+    }, updatePage);
 
   function updatePage(err, data) {
     if (err) {
       next(err);
     } else {
-      res.redirect(`/${data.insertedId}`);
+      res.redirect(`/${req.body._id}`);
     }
   }
 }

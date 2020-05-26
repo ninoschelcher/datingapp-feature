@@ -235,7 +235,7 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.introduction>section, .profile>section {
+.introduction>section {
     padding: 2em;
     display: flex;
     background-color: var(--white);
@@ -279,12 +279,12 @@ body#login>section a:last-of-type {
     height: 35px;
 }
 
-.introduction ul {
+.introduction ul, .profile ul {
     display: flex;
     flex-wrap: wrap;
 }
 
-.introduction form li {
+.introduction form li, .profile form li {
     margin: .6em .7em .3em 0;
     width: 80px;
     height: 50px;
@@ -292,7 +292,7 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.introduction ul li label, .introduction ul li input {
+.introduction ul li label, .introduction ul li input, .profile ul li label, .profile ul li input {
     display: block;
     position: absolute;
     top: 0;
@@ -301,25 +301,25 @@ body#login>section a:last-of-type {
     bottom: 0;
 }
 
-.introduction input[type="radio"] {
+.introduction input[type="radio"], .profile input[type="radio"] {
     opacity: 0.01;
     z-index: 100;
 }
 
-.introduction input[type="radio"]:checked+label, .checked+label {
+.introduction input[type="radio"]:checked+label, .checked+label, .profile input[type="radio"]:checked+label {
     background-color: var(--orange);
     color: var(--white);
     transition: .3s;
 }
 
-.introduction form .radios label:not(:first-child) {
-    padding: 7px 5px 5px 5px;
+.introduction form .radios label:not(:first-child), .profile form .radios label:not(:first-child) {
+    padding: 13px 5px 5px 5px;
     border: 1px solid var(--orange);
     cursor: pointer;
     z-index: 90;
 }
 
-.introduction button {
+.introduction button, .profile button {
     text-decoration: none;
     color: var(--steel-blue);
     position: relative;
@@ -377,12 +377,12 @@ body#login>section a:last-of-type {
     font-family: var(--secondary);
 }
 
-.steps ul {
+.steps section ul {
     display: flex;
     flex-wrap: wrap;
 }
 
-.steps li {
+.steps section li {
     margin: .6em .7em .3em 0;
     width: 100px;
     height: 150px;
@@ -391,7 +391,7 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.steps ul li label, .steps ul li input {
+.steps section ul li label, .steps section ul li input {
     display: block;
     position: absolute;
     top: 0;
@@ -416,24 +416,24 @@ body#login>section a:last-of-type {
     z-index: 90;
 }
 
-.steps nav {
+.steps section nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.steps nav {
+.steps section nav {
     margin-right: 3em;
     margin-left: 1.5em;
 }
 
-.steps nav a {
+.steps section nav a {
     text-decoration: none;
     color: var(--steel-blue);
     position: relative;
 }
 
-.steps nav a:first-of-type::before {
+.steps section nav a:first-of-type::before {
     content: '\f30a';
     position: absolute;
     display: block;
@@ -443,7 +443,7 @@ body#login>section a:last-of-type {
     top: 3px;
 }
 
-.steps nav a:last-of-type::after {
+.steps section nav a:last-of-type::after {
     content: '\f30b';
     position: absolute;
     display: block;
@@ -451,6 +451,14 @@ body#login>section a:last-of-type {
     font-weight: 900;
     top: 4px;
     right: -20px;
+}
+
+.profile>section {
+    padding: 2em;
+    background-color: var(--white);
+    max-width: 20%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
 }
 
 .profile form input {
@@ -462,9 +470,34 @@ body#login>section a:last-of-type {
     vertical-align: middle;
 }
 
+.profile form p {
+    display: flex;
+}
+
+.profile form p label {
+    min-width: 150px;
+}
+
+.profile button {
+    text-decoration: none;
+    color: var(--steel-blue);
+    position: relative;
+    text-align: right;
+    border: none;
+    font-size: .8em;
+    outline: none;
+    cursor: pointer;
+    padding: .5em;
+    border: 1px solid var(--steel-blue);
+    margin-top: 1em;
+}
+
 @media only screen and (max-width:1440px) {
     .steps>section {
         max-width: 40%;
+    }
+    .profile>section {
+        max-width: 35%;
     }
 }
 
