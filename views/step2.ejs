@@ -5,17 +5,23 @@
 
     <section>
         <article>
-            <p>Step 2/6</p>
-            <h1>You and exercising</h1>
-            <p>How do you feel about exercising, Are you working out a lot? Tell us about it. Dont worry,
-                there is no
-                wrong answer.
+            <p>Step 2/5</p>
+            <h1>Your dog 🐶</h1>
+            <p>Since we are all about dogs, we want to know what your dog looks like, upload a picture of your dog(s)!
             </p>
             <article>
-                <form action="">
+                <form action="/step2form" method="POST">
+                    <div>
+                        <label for="dogpic">Upload a picture!</label>
+                        <input type="file" name="dogpic" id="dogpic" name="myfile">
+                    </div>
+                    <div>
+                        <label for="dogname">Name of your dog</label>
+                        <input type="text" name="dogname" id="dogname">
+                    </div>
                     <nav>
                         <a href="introduction">Profile</a>
-                        <a href="#">Next</a>
+                        <button>Next </button>
                     </nav>
                 </form>
             </article>

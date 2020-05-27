@@ -44,9 +44,10 @@ app
   .use(session({ secret: '4nd912nd891nde82' }))
   .set('view engine', 'ejs')
   .post('/', introductionForm)
+  .post('/step2form', submitStep2)
   .post('/updateuser', updateUserProfile)
   .get('/step2', loadStep2)
-  .get('/introduction', introduction)
+  .get('/', introduction)
   .get('/:id', getUserProfile)
   .use((req, res) => {
     res.status(404).send('404 Page not found');
@@ -92,6 +93,11 @@ function introductionForm(req, res, next) {
     }
   }
 }
+
+function submitStep2(req, res, next) {
+  res.render('step3.ejs', { page: 'Step 3' });
+}
+
 
 // Function that renders a page with the specific profile of a specific user
 function getUserProfile(req, res, next) {

@@ -27,6 +27,12 @@ ul {
     margin-block-start: 0;
 }
 
+button {
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -377,7 +383,7 @@ body#login>section a:last-of-type {
     font-family: var(--secondary);
 }
 
-.steps section ul {
+/* .steps section ul {
     display: flex;
     flex-wrap: wrap;
 }
@@ -407,30 +413,64 @@ body#login>section a:last-of-type {
 
 .steps input[type="radio"]:checked+label, .checked+label {
     border: 2px solid green;
-}
+} */
 
-.steps label {
+/* .steps label {
     padding: 5px;
     border: 2px solid #CCC;
     cursor: pointer;
     z-index: 90;
+} */
+
+.steps form div:first-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0;
+}
+
+.steps form div:first-of-type label {
+    cursor: pointer;
+    padding: 4em 1em;
+    color: var(--orange);
+    border: 3px solid var(--orange);
+    border-radius: 100%;
+    font-weight: bold;
+}
+
+.steps form div:first-of-type input {
+    display: none;
+}
+
+.steps form div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.steps form div:last-of-type input {
+    height: 3em;
+    width: 20em;
+    margin-bottom: 2em
+}
+
+.steps form div:last-of-type label {
+    margin-bottom: .5em;
 }
 
 .steps section nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.steps section nav {
     margin-right: 3em;
     margin-left: 1.5em;
 }
 
-.steps section nav a {
+.steps section nav a, .steps section nav button {
     text-decoration: none;
     color: var(--steel-blue);
     position: relative;
+    cursor: pointer;
 }
 
 .steps section nav a:first-of-type::before {
@@ -443,7 +483,7 @@ body#login>section a:last-of-type {
     top: 3px;
 }
 
-.steps section nav a:last-of-type::after {
+.steps section nav button::after {
     content: '\f30b';
     position: absolute;
     display: block;
