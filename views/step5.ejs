@@ -1,0 +1,32 @@
+<%- include ("partials/head.ejs"); %>
+<%- include ("partials/menu.ejs"); %>
+
+<body class="steps step5">
+
+    <section>
+        <article>
+            <p>Step 3/5</p>
+            <h1>Your hobbies ⚽</h1>
+            <p><%= user.firstname %>, you know everybody has hobbies, fill in yours so we can match you to people with
+                similar ones! <%= user.dogname %>
+            </p>
+            <article>
+                <form action="">
+                    <div>
+                        <label for="hobbies">Hobby 1</label>
+                        <input type="text" name="hobbies" id="hobbies">
+                    </div>
+                    <div>
+                        <label for="hobbies">Hobby 2</label>
+                        <input type="text" name="hobbies" id="hobbies">
+                    </div>
+                    <div>
+                        <label for="hobbies">Hobby 3</label>
+                        <input type="text" name="hobbies" id="hobbies">
+                    </div>
+                </form>
+            </article>
+        </article>
+    </section>
+
+    <%- include ("partials/footer.ejs"); %>

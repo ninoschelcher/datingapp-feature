@@ -383,53 +383,14 @@ body#login>section a:last-of-type {
     font-family: var(--secondary);
 }
 
-/* .steps section ul {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.steps section li {
-    margin: .6em .7em .3em 0;
-    width: 100px;
-    height: 150px;
-    position: relative;
-    flex: 0 46%;
-    text-align: center;
-}
-
-.steps section ul li label, .steps section ul li input {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.steps input[type="radio"] {
-    opacity: 0.01;
-    z-index: 100;
-}
-
-.steps input[type="radio"]:checked+label, .checked+label {
-    border: 2px solid green;
-} */
-
-/* .steps label {
-    padding: 5px;
-    border: 2px solid #CCC;
-    cursor: pointer;
-    z-index: 90;
-} */
-
-.steps form div:first-of-type {
+.steps.step2 form div:first-of-type {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2em 0;
 }
 
-.steps form div:first-of-type label {
+.steps.step2 form div:first-of-type label {
     cursor: pointer;
     padding: 4em 1em;
     color: var(--orange);
@@ -438,23 +399,25 @@ body#login>section a:last-of-type {
     font-weight: bold;
 }
 
-.steps form div:first-of-type input {
+.steps.step2 form div:first-of-type input {
     display: none;
 }
 
-.steps form div:last-of-type {
+.steps.step2 form div:last-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.steps form div:last-of-type input {
+.steps.step2 form div:last-of-type input {
     height: 3em;
-    width: 20em;
-    margin-bottom: 2em
+    width: 15em;
+    margin-bottom: 2em;
+    font-size: .9em;
+    padding-left: .4em;
 }
 
-.steps form div:last-of-type label {
+.steps.step2 form div:last-of-type label {
     margin-bottom: .5em;
 }
 

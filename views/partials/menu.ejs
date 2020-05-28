@@ -1,17 +1,17 @@
 <header>
     <nav>
-        <a href="/"><img src="images/logo2.png" alt=""></a>
-        <% if(page != 'Introduction')  { %>
+        <a href="/"><img src="../images/logo2.png" alt=""></a>
+        <% if (page != 'Introduction')  { %>
         <div>
             <ul>
                 <a href="#">
-                    <li><img src="images/search.png" alt="searchicon"></li>
+                    <li><img src="../images/search.png" alt="searchicon"></li>
                 </a>
                 <a href="#">
-                    <li><img src="images/matches.png" alt="matches"></li>
+                    <li><img src="../images/matches.png" alt="matches"></li>
                 </a>
-                <a href="">
-                    <li><img src="images/profile.png" alt="profile"></li>
+                <a href="/profile/<%= user.id %>">
+                    <li><img src="../images/profile.png" alt="profile"></li>
                 </a>
             </ul>
         </div>

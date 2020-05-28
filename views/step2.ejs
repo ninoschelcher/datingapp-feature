@@ -1,13 +1,15 @@
 <%- include ("partials/head.ejs"); %>
 <%- include ("partials/menu.ejs"); %>
 
-<body class="steps">
+<body class="steps step2">
 
     <section>
         <article>
             <p>Step 2/5</p>
             <h1>Your dog 🐶</h1>
-            <p>Since we are all about dogs, we want to know what your dog looks like, upload a picture of your dog(s)!
+            <p>Hello <%= user.firstname %>! Since we are all about dogs, we want to know what your dog looks
+                like,
+                upload a picture of your dog(s)!
             </p>
             <article>
                 <form action="/step2form" method="POST">

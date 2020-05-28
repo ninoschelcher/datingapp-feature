@@ -2,27 +2,31 @@
 <%- include ("partials/menu") %>
 
 <body class="profile">
-    <section>
-        <div>
-            <h1> <%= data.firstname %>'s Profile</h1>
-            <p>On this page you are able to edit your personal information and interests that other people can see</p>
-            <h2>Basic Information</h2>
-            <form action="updateuser" method="POST">
-                <p><label for="firstname">First name:</label> <input type="text" id="firstname" name="firstname"
-                        value="<%= data.firstname %>">
-                </p>
-                <p><label for="lastname">Last name:</label> <input name="lastname" id="lastname" type="text"
-                        value="<%= data.lastname %>"> </p>
-                <p><label for="age">Age:</label> <input name="age" id="age" type="number" value="<%= data.age %>"> </p>
-                <p><label for="gender">Gender:</label> <input name="gender" id="gender" type="text"
-                        value="<%= data.gender %>"> </p>
-                <p><label for="preferredgender">Looking for:</label> <input id="preferredgender" name="preferredgender"
-                        type="text" value="<%= data.preferredgender %>"> </p>
-                <button value="<%= data._id%>" name="_id" data-id=" <%= data._id %>">Update Information</button>
-            </form>
-            <h2>Goals & Interests</h2>
-        </div>
+        <section>
+                <div>
+                        <h1> <%= user.firstname %>'s Profile</h1>
+                        <p>On this page you are able to edit your personal information and interests that other people
+                                can see</p>
+                        <h2>Basic Information</h2>
+                        <form action="updateuser" method="POST">
+                                <p><label for="firstname">First name:</label> <input type="text" id="firstname"
+                                                name="firstname" value="<%= user.firstname %>">
+                                </p>
+                                <p><label for="lastname">Last name:</label> <input name="lastname" id="lastname"
+                                                type="text" value="<%= user.lastname %>"> </p>
+                                <p><label for="age">Age:</label> <input name="age" id="age" type="number"
+                                                value="<%= user.age %>"> </p>
+                                <p><label for="gender">Gender:</label> <input name="gender" id="gender" type="text"
+                                                value="<%= user.gender %>"> </p>
+                                <p><label for="preferredgender">Looking for:</label> <input id="preferredgender"
+                                                name="preferredgender" type="text" value="<%= user.preferredgender %>">
+                                </p>
+                                <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
+                                        Information</button>
+                        </form>
+                        <h2>Goals & Interests</h2>
+                </div>
 
-    </section>
+        </section>
 
-    <%- include ("partials/footer") %>
+        <%- include ("partials/footer") %>
