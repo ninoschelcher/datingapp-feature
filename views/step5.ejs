@@ -5,25 +5,17 @@
 
     <section>
         <article>
-            <p>Step 3/5</p>
-            <h1>Your hobbies ⚽</h1>
-            <p><%= user.firstname %>, you know everybody has hobbies, fill in yours so we can match you to people with
-                similar ones! <%= user.dogname %>
+            <p>Step 5/5</p>
+            <h1>Show yourself! 📸</h1>
+            <p>We know a lot more about you now, <%= user.firstname %>. Its time to upload a picture of yourself so we
+                can show your face to other people on this platform!
             </p>
             <article>
-                <form action="">
-                    <div>
-                        <label for="hobbies">Hobby 1</label>
-                        <input type="text" name="hobbies" id="hobbies">
-                    </div>
-                    <div>
-                        <label for="hobbies">Hobby 2</label>
-                        <input type="text" name="hobbies" id="hobbies">
-                    </div>
-                    <div>
-                        <label for="hobbies">Hobby 3</label>
-                        <input type="text" name="hobbies" id="hobbies">
-                    </div>
+                <form action="/step5form" method="POST" enctype="multipart/form-data">
+                    <nav>
+                        <a href="/step4/<%= user.id %>">Step 4</a>
+                        <button>Next </button>
+                    </nav>
                 </form>
             </article>
         </article>

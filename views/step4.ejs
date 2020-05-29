@@ -6,13 +6,34 @@
     <section>
         <article>
             <p>Step 4/5</p>
-            <h1>Dog Scenario</h1>
-            You signed up for this platform cause you like dogs, and you want to find love. Which of these 4 dogs do
-            you like the most?
+            <h1>Dog Scenario 🐶</h1>
+            You signed up for this platform cause you like dogs, and you want to find love. If you had to choose one of
+            these 4 dogs, which one do you think looks the cutest?
             </p>
             <article>
-                <form action="/step4form" method="POST">
-
+                <form action="/step4form" method="POST" enctype="multipart/form-data">
+                    <ul>
+                        <li>
+                            <input id="option1" name="option" type="radio">
+                            <label for="option1">Never, im lazy</label>
+                        </li>
+                        <li>
+                            <input id="option2" name="option" type="radio">
+                            <label for="option2">Sometimes</label>
+                        </li>
+                        <li>
+                            <input id="option3" name="option" type="radio">
+                            <label for="option3">2 times a week</label>
+                        </li>
+                        <li>
+                            <input id="option4" name="option" type="radio">
+                            <label for="option4">Every single day!</label>
+                        </li>
+                    </ul>
+                    <nav>
+                        <a href="/step3/<%= user.id %>">Step 3</a>
+                        <button>Next </button>
+                    </nav>
                 </form>
             </article>
         </article>

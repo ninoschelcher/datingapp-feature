@@ -5,8 +5,10 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const find = require('array-find');
 const mongo = require('mongodb');
-const { ObjectID } = require('mongodb');
 const session = require('express-session');
+const multer = require('multer');
+const { ObjectID } = require('mongodb');
+
 require('dotenv').config();
 
 const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST;
@@ -20,6 +22,8 @@ mongo.MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true
   }
   db = client.db(process.env.DB_NAME);
 });
+
+var imgUploads = multer({dest: 'public/uploads/'})
 
 
 const answers = [
@@ -41,16 +45,16 @@ app
   }))
   .set('view engine', 'ejs')
   .post('/', introductionForm)
-  .post('/step2form', submitStep2)
+  .post('/step2form', imgUploads.single('dogpicture'),  submitStep2)
   .post('/step3form', submitStep3)
   .post('/step4form', submitStep4)
   .post('/step5form', submitStep5)
   .post('/updateuser', updateUserProfile)
+  .get('/', introduction)
   .get('/step2/:id', loadStep2)
   .get('/step3/:id', loadStep3)
   .get('/step4/:id', loadStep4)
   .get('/step5/:id', loadStep5)
-  .get('/', introduction)
   .get('/profile/:id', getUserProfile)
   .use((req, res) => {
     res.status(404).send('404 Page not found');
@@ -88,9 +92,9 @@ function loadStep2(req, res) {
   });
 }
 
-function submitStep2(req, res, next) {
+function submitStep2(req, res) {
   req.session.user.dogname = req.body.dogname;
-  req.session.user.dogpicture = req.body.dogpicture;
+  req.session.user.dogpicture = req.file;
   res.redirect('/step3/' + req.session.user.id);
 }
 
@@ -101,7 +105,7 @@ function loadStep3(req, res) {
   });
 }
 
-function submitStep3(req, res, next) {
+function submitStep3(req, res) {
   res.redirect('/step4/' + req.session.user.id);
 }
 
@@ -112,7 +116,7 @@ function loadStep4(req, res) {
   });
 }
 
-function submitStep4(req, res, next) {
+function submitStep4(req, res) {
   res.redirect('/step5/' + req.session.user.id);
 }
 
@@ -138,8 +142,9 @@ function submitStep5(req, res, next) {
 
 // Function that renders a page with the specific profile of a specific user
 function getUserProfile(req, res, next) {
+
   db.collection('users').findOne({
-    _id: new mongo.ObjectID(req.params),
+    _id: new mongo.ObjectID(req.session.user._id),
   }, showProfile);
 
   function showProfile(err, data) {
@@ -156,6 +161,7 @@ function updateUserProfile(req, res, next) {
   db.collection('users').updateOne({ _id: ObjectID(req.body._id) },
     {
       $set: {
+        id: req.body.username,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         age: req.body.age,
@@ -168,7 +174,7 @@ function updateUserProfile(req, res, next) {
     if (err) {
       next(err);
     } else {
-      res.redirect('/' + req.body._id);
+      res.redirect('/profile/' + req.body._id);
     }
   }
 }

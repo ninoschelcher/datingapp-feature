@@ -12,17 +12,17 @@
                 upload a picture of your dog(s)!
             </p>
             <article>
-                <form action="/step2form" method="POST">
+                <form action="/step2form" method="POST" enctype="multipart/form-data">
                     <div>
-                        <label for="dogpic">Upload a picture!</label>
-                        <input type="file" name="dogpic" id="dogpic" name="myfile">
+                        <label for="dogpicture">Upload a picture!</label>
+                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
                     </div>
                     <div>
-                        <label for="dogname">Name of your dog</label>
+                        <label for=" dogname">Name of your dog</label>
                         <input type="text" name="dogname" id="dogname">
                     </div>
                     <nav>
-                        <a href="introduction">Profile</a>
+                        <a href="/">Introduction</a>
                         <button>Next </button>
                     </nav>
                 </form>

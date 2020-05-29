@@ -6,12 +6,12 @@
     <section>
         <article>
             <p>Step 3/5</p>
-            <h1>Your hobbies ⚽</h1>
+            <h1>You and your hobbies ⚽</h1>
             <p><%= user.firstname %>, you know everybody has hobbies, fill in yours so we can match you to people with
-                similar ones! <%= user.dogname %>
+                similar ones!
             </p>
             <article>
-                <form action="/step3form" method="POST">
+                <form action="/step3form" method="POST" enctype="multipart/form-data">
                     <div>
                         <label for="hobbies">Hobby 1</label>
                         <input type="text" name="hobbies" id="hobbies">
@@ -24,9 +24,13 @@
                         <label for="hobbies">Hobby 3</label>
                         <input type="text" name="hobbies" id="hobbies">
                     </div>
+                    <div>
+                        <label for="description">Describe yourself</label>
+                        <input type="textarea" name="description" id="description" placeholder="Describe yourself here">
+                    </div>
                     <nav>
-                        <a href="introduction">Profile</a>
-                        <button>Next </button>
+                        <a href="/step2/<%= user.id %>">Step 2</a>
+                        <button>Next</button>
                     </nav>
                 </form>
             </article>
