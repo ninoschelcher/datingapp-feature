@@ -1,15 +1,17 @@
-![meetYou website impression](https://github.com/ninoschelcher/datingapp-feature/blob/master/images/meetyou.png)
+![meetYou website impression](https://github.com/ninoschelcher/datingapp-feature/blob/master/wiki-images/meetyou.png)
 
-# MeetYou Dating App Feature 🧑‍🤝‍🧑
+# MeetYou Dating App Feature 
 
-This is the feature i made for my dating app. It's made with NodeJS, Express & MongoDB
+MeetYou is a Dating App that was made by myself for Blok Tech. The feature i made is about the onboarding process of a user. It contains a step by step process of filling in information about yourself and answering questions. This way you can be matched with people who have the same interests and goals. The application is made with [NodeJS](https://expressjs.com/), [Express](https://expressjs.com/), [EJS](https://ejs.co/) and [MongoDB](https://www.mongodb.com/)
 
 ## Installation
-Everything that is required to get the feature up and running.
+There are a few steps required to do so you can get the feature up and running on your own machine!
 
 ### Clone project
-* Clone this repo to your local machine using `git clone https://github.com/ninoschelcher/datingapp-feature.git`
+* Clone this repo to your local machine using `$ git clone https://github.com/ninoschelcher/datingapp-feature.git`
+* Go to the directory by typing `$ cd datingapp-feature`
 ### Install packages
-Install packages using `$ npm install`
+* Install all required packages by using `$ npm install`
 
-## Use project
+### Run project
+* type `$ npm run start` to start the server
