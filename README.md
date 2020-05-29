@@ -1,4 +1,4 @@
-![meetYou website impression](https://github.com/ninoschelcher/datingapp-feature/blob/master/images/meetyou.png)
+![meetYou website impression](https://github.com/ninoschelcher/datingapp-feature/blob/master/wiki-images/meetyou.png)
 
 # MeetYou Dating App Feature 🧑‍🤝‍🧑
 
