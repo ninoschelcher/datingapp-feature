@@ -15,5 +15,23 @@
         "ecmaVersion": 11
     },
     "rules": {
+        "no-underscore-dangle": "off",
+        "prefer-template": [
+            false,
+            "allow-single-concat"
+        ],
+        "import/newline-after-import": [
+            "error",
+            {
+                "count": 2
+            }
+        ],
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "classes": false
+            }
+        ]
     }
 }

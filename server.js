@@ -1,10 +1,3 @@
-/* eslint-disable prefer-template */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable object-shorthand */
-/* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/newline-after-import */
-/* eslint-disable no-use-before-define */
 /* Express Setup */
 const express = require('express');
 const app = express();
@@ -87,8 +80,7 @@ function introductionForm(req, res) {
 }
 
 
-/* First ejs test for the process of telling
-more about your goals and interest */
+/* First ejs test for the process of telling more about your goals and interest */
 function loadStep2(req, res) {
   res.render('step2.ejs', {
     page: 'Step 2',
