@@ -2,10 +2,10 @@
 
 # MeetYou Dating App Feature 
 
-MeetYou is a Dating App that was made by myself for Blok Tech. The feature i made is about the onboarding process of a user. It contains a step by step process of filling in information about yourself and answering questions. This way you can be matched with people who have the same interests and goals.
+MeetYou is a Dating App that was made by myself for Blok Tech. The feature i made is about the onboarding process of a user. It contains a step by step process of filling in information about yourself and answering questions. This way you can be matched with people who have the same interests and goals. The application is made with [NodeJS](https://expressjs.com/), [Express](https://expressjs.com/), [EJS](https://ejs.co/) and [MongoDB](https://www.mongodb.com/)
 
 ## Installation
-Everything that is required to get the feature up and running.
+There are a few steps required to do so you can get the feature up and running on your own machine!
 
 ### Clone project
 * Clone this repo to your local machine using `$ git clone https://github.com/ninoschelcher/datingapp-feature.git`
@@ -13,5 +13,5 @@ Everything that is required to get the feature up and running.
 ### Install packages
 * Install all required packages by using `$ npm install`
 
-### Use project
+### Run project
 * type `$ npm run start` to start the server
