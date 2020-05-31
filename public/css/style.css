@@ -60,6 +60,11 @@ header nav>div ul li {
     padding: 1em;
     border-radius: 100%;
     width: 60px;
+    cursor: not-allowed;
+}
+
+header nav>div ul li a {
+    cursor: not-allowed;
 }
 
 header nav div img {
