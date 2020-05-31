@@ -25,14 +25,6 @@ mongo.MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true
 
 var imgUploads = multer({dest: 'public/uploads/'})
 
-
-const answers = [
-  'Never, im lazy',
-  'Sometimes',
-  '2 times a week',
-  'Every single day!',
-];
-
 /* Express chain routes and other stuff */
 app
   .use(express.static(`${__dirname}/public`))
@@ -48,7 +40,7 @@ app
   .post('/step2form', imgUploads.single('dogpicture'),  submitStep2)
   .post('/step3form', submitStep3)
   .post('/step4form', submitStep4)
-  .post('/step5form', submitStep5)
+  .post('/step5form', imgUploads.single('profilepicture'), submitStep5)
   .post('/updateuser', updateUserProfile)
   .get('/', introduction)
   .get('/step2/:id', loadStep2)
@@ -106,6 +98,10 @@ function loadStep3(req, res) {
 }
 
 function submitStep3(req, res) {
+  req.session.user.hobby1 = req.body.hobby1;
+  req.session.user.hobby2 = req.body.hobby2;
+  req.session.user.hobby3 = req.body.hobby3;
+  req.session.user.description = req.body.description;
   res.redirect('/step4/' + req.session.user.id);
 }
 
@@ -117,6 +113,7 @@ function loadStep4(req, res) {
 }
 
 function submitStep4(req, res) {
+  req.session.user.dogpref = req.body.dogpref;
   res.redirect('/step5/' + req.session.user.id);
 }
 
@@ -128,6 +125,7 @@ function loadStep5(req, res) {
 }
 
 function submitStep5(req, res, next) {
+  req.session.user.profilepic = req.file;
   db.collection('users').insertOne(req.session.user, profileRedirect);
 
   function profileRedirect(err, data) {
@@ -158,6 +156,7 @@ function getUserProfile(req, res, next) {
 
 /* Function that updates the fields from the profile page */
 function updateUserProfile(req, res, next) {
+  console.log(req.body._id);
   db.collection('users').updateOne({ _id: ObjectID(req.body._id) },
     {
       $set: {
@@ -167,6 +166,10 @@ function updateUserProfile(req, res, next) {
         age: req.body.age,
         gender: req.body.gender,
         preferredgender: req.body.preferredgender,
+        description: req.body.description,
+        hobby1 : req.body.hobby1,
+        hobby2 : req.body.hobby2,
+        hobby3 : req.body.hobby3,
       },
     }, updatePage);
 

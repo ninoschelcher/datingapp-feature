@@ -270,13 +270,13 @@ body#login>section a:last-of-type {
     padding-right: 2em;
 }
 
-.introduction>section div:last-of-type form {
+.introduction>section div:last-of-type form, .step3 section article>article form {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
 }
 
-.introduction>section div:last-of-type form label {
+.introduction>section div:last-of-type form label, .step3 section article>article form label {
     margin-bottom: .5em;
 }
 
@@ -383,23 +383,23 @@ body#login>section a:last-of-type {
     font-family: var(--secondary);
 }
 
-.steps.step2 form div:first-of-type {
+.steps.step2 form div:first-of-type, .steps.step5 form div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2em 0;
 }
 
-.steps.step2 form div:first-of-type label {
+.steps.step2 form div:first-of-type label, .steps.step5 form div label {
     cursor: pointer;
-    padding: 4em 1em;
+    padding: 4em 1.5em;
     color: var(--orange);
     border: 3px solid var(--orange);
     border-radius: 100%;
     font-weight: bold;
 }
 
-.steps.step2 form div:first-of-type input {
+.steps.step2 form div:first-of-type input, .steps.step5 form div input {
     display: none;
 }
 
@@ -456,6 +456,73 @@ body#login>section a:last-of-type {
     right: -20px;
 }
 
+.step3 section article>article form input:not(:last-of-type) {
+    width: 200px;
+    height: 35px;
+    margin-bottom: .7em;
+}
+
+.step3 section article>article form input:last-of-type {
+    width: 100px;
+}
+
+.step4 section ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.step4 section li {
+    margin: .6em .7em .3em 0;
+    width: 100px;
+    height: 150px;
+    position: relative;
+    flex: 0 40%;
+    text-align: center;
+    background-size: cover;
+    background-position: center center;
+}
+
+.step4 form ul li:first-of-type {
+    background-image: url('../images/dogs/labrador.jpg');
+}
+
+.step4 form ul li:nth-of-type(2) {
+    background-image: url('../images/dogs/goldenreriever.jpg');
+}
+
+.step4 form ul li:nth-of-type(3) {
+    background-image: url('../images/dogs/husky.jpg');
+}
+
+.step4 form ul li:last-of-type {
+    background-image: url('../images/dogs/shepherd.jpg');
+}
+
+.step4 ul li label, .step4 ul li input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.step4 input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+}
+
+.step4 input[type="radio"]:checked+label, .checked+label {
+    border: 2px solid green;
+}
+
+.step4 label {
+    padding: 5px;
+    border: 2px solid #CCC;
+    cursor: pointer;
+    z-index: 90;
+}
+
 .profile>section {
     padding: 2em;
     background-color: var(--white);
@@ -471,6 +538,10 @@ body#login>section a:last-of-type {
     font-size: 1em;
     display: inline-block;
     vertical-align: middle;
+}
+
+.profile .profilepictures img {
+    width: 50%;
 }
 
 .profile form p {

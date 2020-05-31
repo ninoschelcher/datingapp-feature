@@ -9,6 +9,7 @@
                                 can see</p>
                         <h2>Basic Information</h2>
                         <form action="/updateuser" method="POST">
+                                <p class="profilepictures"><img src="../uploads/<%= user.profilepic.filename%>"></p>
                                 <p><label for="username">Username</label> <input type="text" id="username"
                                                 name="username" value="<%= user.id %>">
                                 </p>
@@ -24,10 +25,26 @@
                                 <p><label for="preferredgender">Looking for:</label> <input id="preferredgender"
                                                 name="preferredgender" type="text" value="<%= user.preferredgender %>">
                                 </p>
+                                <p><label for="description">Description:</label> <input id="description"
+                                                name="description" type="textarea" rows="4" cols="50"
+                                                value="<%= user.description %>">
+                                </p>
+
+
+                                <h2>Hobbies</h2>
+                                <p><label for="hobby1">Hobby 1:</label> <input type="text" id="hobby1" name="hobby1"
+                                                value="<%= user.hobby1 %>">
+                                </p>
+                                <p><label for="hobby2">Hobby 2:</label> <input type="text" id="hobby2" name="hobby2"
+                                                value="<%= user.hobby2 %>">
+                                </p>
+                                <p><label for="hobby3">Hobby 3:</label> <input name="hobby3" id="hobby3" type="text"
+                                                value="<%= user.hobby3 %>"> </p>
+                                <h2>Your Dog</h2>
+                                <p class="profilepictures"><img src="../uploads/<%= user.dogpicture.filename %>"></p>
                                 <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
                                         Information</button>
                         </form>
-                        <h2>Goals & Interests</h2>
                 </div>
 
         </section>
