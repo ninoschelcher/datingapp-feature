@@ -11,23 +11,21 @@
                 similar ones!
             </p>
             <article>
-                <form action="/step3form" method="POST" enctype="multipart/form-data">
-                    <div>
-                        <label for="hobbies">Hobby 1</label>
-                        <input type="text" name="hobbies" id="hobbies">
-                    </div>
-                    <div>
-                        <label for="hobbies">Hobby 2</label>
-                        <input type="text" name="hobbies" id="hobbies">
-                    </div>
-                    <div>
-                        <label for="hobbies">Hobby 3</label>
-                        <input type="text" name="hobbies" id="hobbies">
-                    </div>
-                    <div>
-                        <label for="description">Describe yourself</label>
-                        <input type="textarea" name="description" id="description" placeholder="Describe yourself here">
-                    </div>
+                <form action="/step3form" method="POST">
+
+                    <label for="hobbies">Hobby 1</label>
+                    <input type="text" name="hobby1" id="hobbies">
+
+                    <label for="hobbies">Hobby 2</label>
+                    <input type="text" name="hobby2" id="hobbies">
+
+                    <label for="hobbies">Hobby 3</label>
+                    <input type="text" name="hobby3" id="hobbies">
+
+                    <label for="description">Describe yourself</label>
+                    <input type="textarea" name="description" rows="4" cols="50" id="description"
+                        placeholder="Describe yourself here">
+
                     <nav>
                         <a href="/step2/<%= user.id %>">Step 2</a>
                         <button>Next</button>
