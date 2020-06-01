@@ -8,9 +8,25 @@
                         <p>On this page you are able to edit your personal information and interests that other people
                                 can see</p>
                         <h2>Basic Information</h2>
-                        <form action="/updateuser" method="POST">
-                                <p class="profilepictures"><img src="../uploads/<%= user.profilepic.filename%>"
-                                                alt="picture of user"></p>
+                        <form action="/updateuser" method="POST" enctype="multipart/form-data">
+                                <div>
+                                        <% if(user.profilepic) { %>
+                                        <p id="profilepictures"><img src="../uploads/<%= user.profilepic.filename %>"
+                                                        alt="picture of user"></p>
+                                        <div id="changeimage">
+                                                <label for="profilepicture"><i class="fas fa-pencil-alt"></i></label>
+                                                <input type="file" name="profilepicture" id="profilepicture"
+                                                        accept=image/*>
+                                        </div>
+                                        <% } else { %>
+                                        <div>
+                                                <label for="profilepicture">Upload a image of yourself</label>
+                                                <input type="file" name="profilepicture" id="profilepicture"
+                                                        accept=image/*>
+                                        </div>
+                                        <% } %>
+
+                                </div>
                                 <p><label for="username">Username</label> <input type="text" id="username"
                                                 name="username" value="<%= user.id %>">
                                 </p>
@@ -42,13 +58,27 @@
                                 <p><label for="hobby3">Hobby 3:</label> <input name="hobby3" id="hobby3" type="text"
                                                 value="<%= user.hobby3 %>"> </p>
                                 <h2>Your Dog</h2>
-                                <figure>
-                                        <input type="text" name="dogname" value="<%= user.dogname %>"></input>
 
-                                        <img src="../uploads/<%= user.dogpicture.filename %>" alt="picture of dog">
-                                </figure>
+                                <input type="text" name="dogname" placeholder="Name of your dog"
+                                        value="<%= user.dogname %>"></input>
+                                <% if(user.dogpicture) { %>
+                                <p id="dogpicture"><img src="../uploads/<%= user.dogpicture.filename %>"
+                                                alt="picture of user"></p>
+                                <div id="changeimage">
+                                        <label for="dogpicture"><i class="fas fa-pencil-alt"></i></label>
+                                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
+                                </div>
+                                <% } else { %>
+                                <div>
+                                        <label for="dogpicture">Upload a image of your dog</label>
+                                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
+                                </div>
+                                <% } %>
+
                                 <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
                                         Information</button>
+
+
                         </form>
                 </div>
 

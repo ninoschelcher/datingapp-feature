@@ -41,7 +41,7 @@ app
   .post('/step3form', submitStep3)
   .post('/step4form', submitStep4)
   .post('/step5form', imgUploads.single('profilepicture'), submitStep5)
-  .post('/updateuser', updateUserProfile)
+  .post('/updateuser', imgUploads.single('profilepicture'), updateUserProfile)
   .get('/', introduction)
   .get('/step2/:id', loadStep2)
   .get('/step3/:id', loadStep3)
@@ -166,6 +166,7 @@ function updateUserProfile(req, res, next) {
         gender: req.body.gender,
         preferredgender: req.body.preferredgender,
         description: req.body.description,
+        profilepic: req.file,
         hobby1 : req.body.hobby1,
         hobby2 : req.body.hobby2,
         hobby3 : req.body.hobby3,
