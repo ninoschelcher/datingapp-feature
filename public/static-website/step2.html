@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Meetyou &mdash; Step 2 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<header>
+    <nav>
+        <a href="introduction.html"><img src="../images/logo2.png" alt=""></a>
+        <div>
+            <ul>
+                <a href="#">
+                    <li><img src="../images/search.png" alt="searchicon"></li>
+                </a>
+                <a href="#">
+                    <li><img src="../images/matches.png" alt="matches"></li>
+                </a>
+                <a href="/profile/">
+                    <li><img src="../images/profile.png" alt="profile"></li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body class="steps step2">
+
+    <section>
+        <article>
+            <p>Step 2/5</p>
+            <h1>Your dog 🐶</h1>
+            <p>Hello Since we are all about dogs, we want to know what your dog looks
+                like,
+                upload a picture of your dog(s)!
+            </p>
+            <article>
+                <form>
+                    <p><img id="picture-dog" /></p>
+                    <div>
+                        <label for="dogpicture">Upload a picture of your dog!</label>
+                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
+                    </div>
+                    <div>
+                        <label for=" dogname">Name of your dog</label>
+                        <input type="text" name="dogname" id="dogname">
+                    </div>
+                    <nav>
+                        <a href="introduction.html">Introduction</a>
+                        <button> <a href="step3.html">Next</a></button>
+                    </nav>
+                </form>
+            </article>
+        </article>
+    </section>
+
+    <script src="../server.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

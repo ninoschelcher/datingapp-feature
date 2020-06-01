@@ -156,7 +156,6 @@ function getUserProfile(req, res, next) {
 
 /* Function that updates the fields from the profile page */
 function updateUserProfile(req, res, next) {
-  console.log(req.body._id);
   db.collection('users').updateOne({ _id: ObjectID(req.body._id) },
     {
       $set: {
@@ -170,6 +169,7 @@ function updateUserProfile(req, res, next) {
         hobby1 : req.body.hobby1,
         hobby2 : req.body.hobby2,
         hobby3 : req.body.hobby3,
+        dogname: req.body.dogname,
       },
     }, updatePage);
 

@@ -13,9 +13,11 @@
             </p>
             <article>
                 <form action="/step2form" method="POST" enctype="multipart/form-data">
+                    <p><img id="picture-dog" /></p>
                     <div>
-                        <label for="dogpicture">Picture of your dog</label>
-                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
+                        <label for="dogpicture">Upload a picture of your dog!</label>
+                        <input type="file" onchange="loadDogPicture(event)" name="dogpicture" id="dogpicture"
+                            accept=image/*>
                     </div>
                     <div>
                         <label for=" dogname">Name of your dog</label>

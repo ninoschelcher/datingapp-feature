@@ -388,6 +388,18 @@ body#login>section a:last-of-type {
     font-family: var(--secondary);
 }
 
+.step2 form p:first-child, .step5 form p:first-child {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.step2 #picture-dog, .step5 #picture-profile {
+    width: 170px;
+    border-radius: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .steps.step2 form div:first-of-type, .steps.step5 form div {
     display: flex;
     justify-content: center;
@@ -397,10 +409,9 @@ body#login>section a:last-of-type {
 
 .steps.step2 form div:first-of-type label, .steps.step5 form div label {
     cursor: pointer;
-    padding: 4em 1.5em;
+    padding: 1em 1.5em;
     color: var(--orange);
     border: 3px solid var(--orange);
-    border-radius: 100%;
     font-weight: bold;
 }
 
@@ -461,14 +472,19 @@ body#login>section a:last-of-type {
     right: -20px;
 }
 
-.step3 section article>article form input:not(:last-of-type) {
+.step3 section article>article div {
+    display: flex;
+    flex-direction: column;
+}
+
+.step3 section article>article form input {
     width: 200px;
     height: 35px;
     margin-bottom: .7em;
 }
 
-.step3 section article>article form input:last-of-type {
-    width: 100px;
+.step3 section article>article form textarea {
+    max-width: 250px;
 }
 
 .step4 section ul {
@@ -536,7 +552,7 @@ body#login>section a:last-of-type {
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
 }
 
-.profile form input {
+.profile form input, .profile form textarea {
     border: 0;
     outline: 0;
     border-bottom: 1px solid gray;
@@ -555,6 +571,22 @@ body#login>section a:last-of-type {
 
 .profile form p label {
     min-width: 150px;
+}
+
+.profile figure {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.profile figure img {
+    width: 50%;
+    margin-top: 1em;
 }
 
 .profile button {

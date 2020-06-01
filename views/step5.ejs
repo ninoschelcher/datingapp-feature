@@ -12,9 +12,11 @@
             </p>
             <article>
                 <form action="/step5form" method="POST" enctype="multipart/form-data">
+                    <p><img id="picture-profile" /></p>
                     <div>
-                        <label for="profilepicture">Picture of you</label>
-                        <input type="file" name="profilepicture" id="profilepicture" accept=image/*>
+                        <label for="profilepicture">Upload a picture of yourself</label>
+                        <input type="file" name="profilepicture" onchange="loadProfilePicture(event)"
+                            id="profilepicture" accept=image/*>
                     </div>
                     <nav>
                         <a href="/step4/<%= user.id %>">Step 4</a>

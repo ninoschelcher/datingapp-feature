@@ -9,7 +9,8 @@
                                 can see</p>
                         <h2>Basic Information</h2>
                         <form action="/updateuser" method="POST">
-                                <p class="profilepictures"><img src="../uploads/<%= user.profilepic.filename%>"></p>
+                                <p class="profilepictures"><img src="../uploads/<%= user.profilepic.filename%>"
+                                                alt="picture of user"></p>
                                 <p><label for="username">Username</label> <input type="text" id="username"
                                                 name="username" value="<%= user.id %>">
                                 </p>
@@ -25,9 +26,9 @@
                                 <p><label for="preferredgender">Looking for:</label> <input id="preferredgender"
                                                 name="preferredgender" type="text" value="<%= user.preferredgender %>">
                                 </p>
-                                <p><label for="description">Description:</label> <input id="description"
-                                                name="description" type="textarea" rows="4" cols="50"
-                                                value="<%= user.description %>">
+                                <p><label for="description">Description:</label> <textarea id="description"
+                                                name="description" type="textarea" rows="4"
+                                                cols="50"><%= user.description %></textarea>
                                 </p>
 
 
@@ -41,7 +42,11 @@
                                 <p><label for="hobby3">Hobby 3:</label> <input name="hobby3" id="hobby3" type="text"
                                                 value="<%= user.hobby3 %>"> </p>
                                 <h2>Your Dog</h2>
-                                <p class="profilepictures"><img src="../uploads/<%= user.dogpicture.filename %>"></p>
+                                <figure>
+                                        <input type="text" name="dogname" value="<%= user.dogname %>"></input>
+
+                                        <img src="../uploads/<%= user.dogpicture.filename %>" alt="picture of dog">
+                                </figure>
                                 <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
                                         Information</button>
                         </form>

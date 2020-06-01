@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Meetyou &mdash; Step 4 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<header>
+    <nav>
+        <a href="introduction.html"><img src="../images/logo2.png" alt=""></a>
+        <div>
+            <ul>
+                <a href="#">
+                    <li><img src="../images/search.png" alt="searchicon"></li>
+                </a>
+                <a href="#">
+                    <li><img src="../images/matches.png" alt="matches"></li>
+                </a>
+                <a href="/profile/">
+                    <li><img src="../images/profile.png" alt="profile"></li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body class="profile">
+    <section>
+        <div>
+            <h1> 's Profile</h1>
+            <p>On this page you are able to edit your personal information and interests that other people
+                can see</p>
+            <h2>Basic Information</h2>
+            <form action="/updateuser" method="POST">
+                <p class="profilepictures"><img src="" alt="picture of user">
+                </p>
+                <p><label for="username">Username</label> <input type="text" id="username" name="username">
+                </p>
+                <p><label for="firstname">First name:</label> <input type="text" id="firstname" name="firstname">
+                </p>
+                <p><label for="lastname">Last name:</label> <input name="lastname" id="lastname" type="text"> </p>
+                <p><label for="age">Age:</label> <input name="age" id="age" type="number"> </p>
+                <p><label for="gender">Gender:</label> <input name="gender" id="gender" type="text"> </p>
+                <p><label for="preferredgender">Looking for:</label> <input id="preferredgender" name="preferredgender"
+                        type="text">
+                </p>
+                <p><label for="description">Description:</label> <textarea id="description" name="description"
+                        type="textarea" rows="4" cols="50"></textarea>
+                </p>
+
+
+                <h2>Hobbies</h2>
+                <p><label for="hobby1">Hobby 1:</label> <input type="text" id="hobby1" name="hobby1">
+                </p>
+                <p><label for="hobby2">Hobby 2:</label> <input type="text" id="hobby2" name="hobby2">
+                </p>
+                <p><label for="hobby3">Hobby 3:</label> <input name="hobby3" id="hobby3" type="text"> </p>
+                <h2>Your Dog</h2>
+                <figure>
+                    <input type="text" name="dogname"></input>
+
+                    <img src="" alt=" picture of dog">
+                </figure>
+                <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
+                    Information</button>
+            </form>
+        </div>
+
+    </section>
+    <script src="../server.js"></script>
+</body>
+
+</html>
