@@ -41,7 +41,7 @@ app
   .post('/step3form', submitStep3)
   .post('/step4form', submitStep4)
   .post('/step5form', imgUploads.single('profilepicture'), submitStep5)
-  .post('/updateuser', imgUploads.single('profilepicture'), updateUserProfile)
+  .post('/updateuser',imgUploads.single('profilepicture'), updateUserProfile)
   .get('/', introduction)
   .get('/step2/:id', loadStep2)
   .get('/step3/:id', loadStep3)
@@ -86,7 +86,7 @@ function loadStep2(req, res) {
 
 function submitStep2(req, res) {
   req.session.user.dogname = req.body.dogname;
-  req.session.user.dogpicture = req.file;
+  req.session.user.dogpicture = req.file ? req.file.filename : null,
   res.redirect('/step3/' + req.session.user.id);
 }
 
@@ -125,7 +125,7 @@ function loadStep5(req, res) {
 }
 
 function submitStep5(req, res, next) {
-  req.session.user.profilepic = req.file;
+  req.session.user.profilepic = req.file ? req.file.filename : null,
   db.collection('users').insertOne(req.session.user, profileRedirect);
 
   function profileRedirect(err, data) {
@@ -163,10 +163,10 @@ function updateUserProfile(req, res, next) {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         age: req.body.age,
+        profilepic : req.file ? req.file.filename : null,
         gender: req.body.gender,
         preferredgender: req.body.preferredgender,
         description: req.body.description,
-        profilepic: req.file,
         hobby1 : req.body.hobby1,
         hobby2 : req.body.hobby2,
         hobby3 : req.body.hobby3,

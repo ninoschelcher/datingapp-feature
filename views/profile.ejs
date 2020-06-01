@@ -10,37 +10,31 @@
                         <h2>Basic Information</h2>
                         <form action="/updateuser" method="POST" enctype="multipart/form-data">
                                 <div>
-                                        <% if(user.profilepic) { %>
-                                        <p id="profilepictures"><img src="../uploads/<%= user.profilepic.filename %>"
+
+                                        <p id="profilepictures"><img src="../uploads/<%= user.profilepic %>"
                                                         alt="picture of user"></p>
                                         <div id="changeimage">
                                                 <label for="profilepicture"><i class="fas fa-pencil-alt"></i></label>
                                                 <input type="file" name="profilepicture" id="profilepicture"
-                                                        accept=image/*>
+                                                        accept=image/* value="<%= user.profilepic.filename %>">
                                         </div>
-                                        <% } else { %>
-                                        <div>
-                                                <label for="profilepicture">Upload a image of yourself</label>
-                                                <input type="file" name="profilepicture" id="profilepicture"
-                                                        accept=image/*>
-                                        </div>
-                                        <% } %>
 
                                 </div>
                                 <p><label for="username">Username</label> <input type="text" id="username"
-                                                name="username" value="<%= user.id %>">
+                                                name="username" value="<%= user.id %>" autocomplete="off">
                                 </p>
                                 <p><label for="firstname">First name:</label> <input type="text" id="firstname"
-                                                name="firstname" value="<%= user.firstname %>">
+                                                name="firstname" value="<%= user.firstname %>" autocomplete="off">
                                 </p>
                                 <p><label for="lastname">Last name:</label> <input name="lastname" id="lastname"
-                                                type="text" value="<%= user.lastname %>"> </p>
+                                                type="text" value="<%= user.lastname %>" autocomplete="off"> </p>
                                 <p><label for="age">Age:</label> <input name="age" id="age" type="number"
-                                                value="<%= user.age %>"> </p>
+                                                value="<%= user.age %>" autocomplete="off"> </p>
                                 <p><label for="gender">Gender:</label> <input name="gender" id="gender" type="text"
                                                 value="<%= user.gender %>"> </p>
                                 <p><label for="preferredgender">Looking for:</label> <input id="preferredgender"
-                                                name="preferredgender" type="text" value="<%= user.preferredgender %>">
+                                                name="preferredgender" type="text" value="<%= user.preferredgender %>"
+                                                autocomplete="off">
                                 </p>
                                 <p><label for="description">Description:</label> <textarea id="description"
                                                 name="description" type="textarea" rows="4"
@@ -50,34 +44,23 @@
 
                                 <h2>Hobbies</h2>
                                 <p><label for="hobby1">Hobby 1:</label> <input type="text" id="hobby1" name="hobby1"
-                                                value="<%= user.hobby1 %>">
+                                                value="<%= user.hobby1 %>" autocomplete="off">
                                 </p>
                                 <p><label for="hobby2">Hobby 2:</label> <input type="text" id="hobby2" name="hobby2"
-                                                value="<%= user.hobby2 %>">
+                                                value="<%= user.hobby2 %>" autocomplete="off">
                                 </p>
                                 <p><label for="hobby3">Hobby 3:</label> <input name="hobby3" id="hobby3" type="text"
-                                                value="<%= user.hobby3 %>"> </p>
+                                                value="<%= user.hobby3 %>" autocomplete="off"> </p>
                                 <h2>Your Dog</h2>
 
                                 <input type="text" name="dogname" placeholder="Name of your dog"
                                         value="<%= user.dogname %>"></input>
-                                <% if(user.dogpicture) { %>
                                 <p id="dogpicture"><img src="../uploads/<%= user.dogpicture.filename %>"
                                                 alt="picture of user"></p>
-                                <div id="changeimage">
-                                        <label for="dogpicture"><i class="fas fa-pencil-alt"></i></label>
-                                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
-                                </div>
-                                <% } else { %>
-                                <div>
-                                        <label for="dogpicture">Upload a image of your dog</label>
-                                        <input type="file" name="dogpicture" id="dogpicture" accept=image/*>
-                                </div>
-                                <% } %>
+
 
                                 <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
                                         Information</button>
-
 
                         </form>
                 </div>
