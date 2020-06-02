@@ -9,7 +9,7 @@
                                 can see. <a href="/preview/<%= user._id %>">Preview Profile <i
                                                 class="fas fa-long-arrow-alt-right"></i></a></p>
                         <h2>Basic Information</h2>
-                        <form action="/updateuser" method="POST" enctype="multipart/form-data">
+                        <form action="/updateuser" id="information" method="POST" enctype="multipart/form-data">
                                 <div>
 
                                         <p id="profilepictures"><img src="../uploads/<%= user.profilepic %>"
@@ -64,6 +64,14 @@
                                         Information</button>
 
                         </form>
+                        <hr>
+                        <form action="/disableprofile" method="POST">
+                                <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Disable
+                                        Profile</button>
+                                <p>Warning, this will delete your profile forever!</p>
+
+                        </form>
+
                 </div>
 
         </section>

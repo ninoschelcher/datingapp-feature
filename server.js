@@ -43,13 +43,14 @@ app
   .post('/step5form', imgUploads.single('profilepicture'), submitStep5)
   .post('/updateuser',imgUploads.single('profilepicture'), updateUserProfile)
   .post('/signout', signOutUser)
+  .post('/disableprofile', disableProfile)
   .get('/', introduction)
   .get('/step2/:id', loadStep2)
   .get('/step3/:id', loadStep3)
   .get('/step4/:id', loadStep4)
   .get('/step5/:id', loadStep5)
   .get('/profile/:id', getUserProfile)
-  .get('/preview/:id', previewProfile)
+  .get('/preview/:id', previewUserProfile)
   .use((req, res) => {
     res.status(404).send('404 Page not found');
   })
@@ -74,11 +75,12 @@ function introductionForm(req, res) {
     gender: req.body.gender,
     preferredgender: req.body.preferredgender,
   };
+
   res.redirect('/step2/' + req.body.username);
 }
 
 
-/* First ejs test for the process of telling more about your goals and interest */
+// All functions that process the inputs of each step and puts the input into the current session //
 function loadStep2(req, res) {
   res.render('step2.ejs', {
     page: 'Step 2',
@@ -88,7 +90,8 @@ function loadStep2(req, res) {
 
 function submitStep2(req, res) {
   req.session.user.dogname = req.body.dogname;
-  req.session.user.dogpicture = req.file ? req.file.filename : null,
+  req.session.user.dogpicture = req.file ? req.file.filename : null;
+
   res.redirect('/step3/' + req.session.user.id);
 }
 
@@ -100,10 +103,13 @@ function loadStep3(req, res) {
 }
 
 function submitStep3(req, res) {
+  let hobbies = [];
+  
   req.session.user.hobby1 = req.body.hobby1;
   req.session.user.hobby2 = req.body.hobby2;
   req.session.user.hobby3 = req.body.hobby3;
   req.session.user.description = req.body.description;
+
   res.redirect('/step4/' + req.session.user.id);
 }
 
@@ -116,6 +122,7 @@ function loadStep4(req, res) {
 
 function submitStep4(req, res) {
   req.session.user.dogpref = req.body.dogpref;
+
   res.redirect('/step5/' + req.session.user.id);
 }
 
@@ -127,7 +134,7 @@ function loadStep5(req, res) {
 }
 
 function submitStep5(req, res, next) {
-  req.session.user.profilepic = req.file ? req.file.filename : null,
+  req.session.user.profilepic = req.file ? req.file.filename : null;
   db.collection('users').insertOne(req.session.user, profileRedirect);
 
   function profileRedirect(err, data) {
@@ -140,7 +147,7 @@ function submitStep5(req, res, next) {
   }
 }
 
-// Function that renders a page with the specific profile of a specific user
+// Function that renders a page with the specific profile of a specific user //
 function getUserProfile(req, res, next) {
   db.collection('users').findOne({
     _id: new mongo.ObjectID(req.session.user._id),
@@ -155,13 +162,13 @@ function getUserProfile(req, res, next) {
   }
 }
 
-//Function that renders a page with how the profile looks with all the data */
-function previewProfile(req, res, next) {
+// Function that renders a page with how the profile of the current user looks like with all the data filled in //
+function previewUserProfile(req, res, next) {
   db.collection('users').findOne({
     _id: new mongo.ObjectID(req.session.user._id),
-  }, showProfile);
+  }, showPreview);
 
-  function showProfile(err, data) {
+  function showPreview(err, data) {
     if (err) {
       next(err);
     } else {
@@ -170,7 +177,7 @@ function previewProfile(req, res, next) {
   }
 }
 
-/* Function that updates the fields from the profile page */
+// Function that updates the fields from the profile page //
 function updateUserProfile(req, res, next) {
   db.collection('users').updateOne({ _id: ObjectID(req.body._id) },
     {
@@ -188,9 +195,9 @@ function updateUserProfile(req, res, next) {
         hobby3 : req.body.hobby3,
         dogname: req.body.dogname,
       },
-    }, updatePage);
+    }, updateUser);
 
-  function updatePage(err) {
+  function updateUser(err) {
     if (err) {
       next(err);
     } else {
@@ -199,8 +206,23 @@ function updateUserProfile(req, res, next) {
   }
 }
 
+// Function that deletes the current profile from the database //
+function disableProfile(req, res) {
+  db.collection('users').deleteOne( { _id : new mongo.ObjectId(req.body._id) }, 
+  deleteUser);
 
+  function deleteUser(err) {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/');
+    }
+  }
+}
+
+// Function that signs out the user //
 function signOutUser(req, res) {
   req.session.destroy();
   res.redirect('/')
 }
+

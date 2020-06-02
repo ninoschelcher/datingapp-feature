@@ -573,7 +573,7 @@ body#login>section a:last-of-type {
     padding: 2em;
     margin-bottom: 2em;
     background-color: var(--white);
-    max-width: 20%;
+    max-width: 25%;
     border-radius: 10px;
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
 }
@@ -663,7 +663,7 @@ body#login>section a:last-of-type {
     margin-top: 1em;
 }
 
-.profile section button {
+.profile section form:first-of-type button {
     text-decoration: none;
     color: var(--steel-blue);
     position: relative;
@@ -674,11 +674,31 @@ body#login>section a:last-of-type {
     cursor: pointer;
     padding: .5em;
     border: 1px solid var(--steel-blue);
-    margin-top: 1em;
+    margin: 1em 0;
 }
 
-.preview h1 {
+.profile section form:last-of-type button {
+    text-decoration: none;
+    color: var(--dark-red);
+    position: relative;
+    text-align: right;
+    border: none;
+    font-size: .8em;
+    outline: none;
+    cursor: pointer;
+    padding: .5em;
+    border: 1px solid var(--dark-red);
+    margin: 1em 0;
+}
+
+.profile section form:first-of-type button .preview h1 {
     margin: 0;
+}
+
+.profile section form:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .preview>section {
