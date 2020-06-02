@@ -57,6 +57,11 @@ header nav>div {
     margin-top: 1em;
 }
 
+header button {
+    padding: .8em;
+    color: var(--orange);
+}
+
 header nav>div ul {
     width: 200px;
     justify-content: space-between;
@@ -69,11 +74,6 @@ header nav>div ul li {
     padding: 1em;
     border-radius: 100%;
     width: 60px;
-    cursor: not-allowed;
-}
-
-header nav>div ul li a {
-    cursor: not-allowed;
 }
 
 header nav div img {
@@ -274,7 +274,7 @@ body#login>section a:last-of-type {
     color: var(--orange);
 }
 
-.introduction>section div:first-of-type p:last-of-type {
+.introduction>section div:first-of-type p {
     max-width: 70%;
     font-family: var(--secondary);
 }
@@ -339,7 +339,7 @@ body#login>section a:last-of-type {
     z-index: 90;
 }
 
-.introduction button, .profile button {
+.introduction button, .profile section button {
     text-decoration: none;
     color: var(--steel-blue);
     position: relative;
@@ -571,10 +571,16 @@ body#login>section a:last-of-type {
 
 .profile>section {
     padding: 2em;
+    margin-bottom: 2em;
     background-color: var(--white);
     max-width: 20%;
     border-radius: 10px;
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
+}
+
+.profile a {
+    text-decoration: none;
+    color: var(--dark-orange);
 }
 
 .profile form input, .profile form textarea {
@@ -657,7 +663,7 @@ body#login>section a:last-of-type {
     margin-top: 1em;
 }
 
-.profile button {
+.profile section button {
     text-decoration: none;
     color: var(--steel-blue);
     position: relative;
@@ -669,6 +675,35 @@ body#login>section a:last-of-type {
     padding: .5em;
     border: 1px solid var(--steel-blue);
     margin-top: 1em;
+}
+
+.preview h1 {
+    margin: 0;
+}
+
+.preview>section {
+    padding: 4em 2em;
+}
+
+.preview article {
+    position: relative;
+}
+
+.preview article div {
+    position: absolute;
+    width: 50%;
+    bottom: -3em;
+    background-color: var(--white);
+    border: 1px solid var(--orange);
+    padding: 0 1em;
+    border-top: none;
+}
+
+.preview article ul {
+    list-style: disc;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
 @media only screen and (max-width:1440px) {
@@ -708,8 +743,4 @@ body#login>section a:last-of-type {
     .steps>section {
         max-width: 70%;
     }
-}
-
-.ejs h3 {
-    color: red;
 }

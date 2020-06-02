@@ -1,12 +1,13 @@
 <%- include ("partials/head") %>
-<%- include ("partials/menu") %>
+<%- include ("partials/profilemenu") %>
 
 <body class="profile">
         <section>
                 <div>
                         <h1> <%= user.firstname %>'s Profile</h1>
                         <p>On this page you are able to edit your personal information and interests that other people
-                                can see</p>
+                                can see. <a href="/preview/<%= user._id %>">Preview Profile <i
+                                                class="fas fa-long-arrow-alt-right"></i></a></p>
                         <h2>Basic Information</h2>
                         <form action="/updateuser" method="POST" enctype="multipart/form-data">
                                 <div>

@@ -1,0 +1,30 @@
+<%- include ("partials/head") %>
+<%- include ("partials/profilemenu") %>
+
+<body class="profile preview">
+    <section>
+        <div>
+            <h1> <%= user.firstname %>'s Profile Preview</h1>
+            <p>This is what your profile looks like to other people!</p>
+            <article>
+                <p id="profilepictures"><img src="../uploads/<%= user.profilepic %>" alt="picture of user"></p>
+                <div>
+                    <h2><%= user.firstname %>, <%= user.age %> </h2>
+                    <p><%= user.description %></p>
+                    <ul>
+                        <% if(user.hobby1) { %>
+                        <li><%= user.hobby1 %> </li>
+                        <% } if(user.hobby2) { %>
+                        <li><%= user.hobby2 %> </li>
+                        <% } if(user.hobby3) { %>
+                        <li><%= user.hobby3 %> </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <%- include ("partials/footer") %>

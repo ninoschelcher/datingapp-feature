@@ -42,12 +42,14 @@ app
   .post('/step4form', submitStep4)
   .post('/step5form', imgUploads.single('profilepicture'), submitStep5)
   .post('/updateuser',imgUploads.single('profilepicture'), updateUserProfile)
+  .post('/signout', signOutUser)
   .get('/', introduction)
   .get('/step2/:id', loadStep2)
   .get('/step3/:id', loadStep3)
   .get('/step4/:id', loadStep4)
   .get('/step5/:id', loadStep5)
   .get('/profile/:id', getUserProfile)
+  .get('/preview/:id', previewProfile)
   .use((req, res) => {
     res.status(404).send('404 Page not found');
   })
@@ -140,7 +142,6 @@ function submitStep5(req, res, next) {
 
 // Function that renders a page with the specific profile of a specific user
 function getUserProfile(req, res, next) {
-
   db.collection('users').findOne({
     _id: new mongo.ObjectID(req.session.user._id),
   }, showProfile);
@@ -150,6 +151,21 @@ function getUserProfile(req, res, next) {
       next(err);
     } else {
       res.render('profile.ejs', { user: data, page: 'Profile' });
+    }
+  }
+}
+
+//Function that renders a page with how the profile looks with all the data */
+function previewProfile(req, res, next) {
+  db.collection('users').findOne({
+    _id: new mongo.ObjectID(req.session.user._id),
+  }, showProfile);
+
+  function showProfile(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.render('previewprofile.ejs', { user: data, page: 'Profile Preview' });
     }
   }
 }
@@ -181,4 +197,10 @@ function updateUserProfile(req, res, next) {
       res.redirect('/profile/' + req.body._id);
     }
   }
+}
+
+
+function signOutUser(req, res) {
+  req.session.destroy();
+  res.redirect('/')
 }

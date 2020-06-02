@@ -1,0 +1,23 @@
+<header>
+    <nav>
+        <a href="/"><img src="../images/logo2.png" alt=""></a>
+        <% if (page != 'Introduction')  { %>
+        <div>
+            <ul>
+                <a href="#">
+                    <li><img src="../images/search.png" alt="searchicon"></li>
+                </a>
+                <a href="#">
+                    <li><img src="../images/matches.png" alt="matches"></li>
+                </a>
+                <a href="/profile/<%= user._id %>">
+                    <li><img src="../images/profile.png" alt="profile"></li>
+                </a>
+            </ul>
+        </div>
+        <% } %>
+        <form action="/signout" method="POST">
+            <button>Sign Out<i class="fas fa-sign-out-alt"></i></button>
+        </form>
+    </nav>
+</header>
