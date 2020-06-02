@@ -12,12 +12,8 @@
                     <h2><%= user.firstname %>, <%= user.age %> </h2>
                     <p><%= user.description %></p>
                     <ul>
-                        <% if(user.hobby1) { %>
-                        <li><%= user.hobby1 %> </li>
-                        <% } if(user.hobby2) { %>
-                        <li><%= user.hobby2 %> </li>
-                        <% } if(user.hobby3) { %>
-                        <li><%= user.hobby3 %> </li>
+                        <% for(let i = 0; i < user.hobbies.length; i++) { %>
+                        <li><%= user.hobbies[i]%></li>
                         <% } %>
                     </ul>
                 </div>

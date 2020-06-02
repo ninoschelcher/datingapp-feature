@@ -8,7 +8,6 @@ const mongo = require('mongodb');
 const session = require('express-session');
 const multer = require('multer');
 const { ObjectID } = require('mongodb');
-
 require('dotenv').config();
 
 const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST;
@@ -103,11 +102,7 @@ function loadStep3(req, res) {
 }
 
 function submitStep3(req, res) {
-  let hobbies = [];
-  
-  req.session.user.hobby1 = req.body.hobby1;
-  req.session.user.hobby2 = req.body.hobby2;
-  req.session.user.hobby3 = req.body.hobby3;
+  req.session.user.hobbies = req.body.hobbies
   req.session.user.description = req.body.description;
 
   res.redirect('/step4/' + req.session.user.id);
@@ -190,9 +185,7 @@ function updateUserProfile(req, res, next) {
         profilepic: req.file ? req.file.filename : null,
         preferredgender: req.body.preferredgender,
         description: req.body.description,
-        hobby1 : req.body.hobby1,
-        hobby2 : req.body.hobby2,
-        hobby3 : req.body.hobby3,
+        hobbies: req.body.hobbies,
         dogname: req.body.dogname,
       },
     }, updateUser);
