@@ -504,6 +504,8 @@ body#login>section a:last-of-type {
 
 .step3 section article>article form textarea {
     max-width: 250px;
+    margin-bottom: 2em;
+    border: 1px solid #BFBFBF;
 }
 
 .step4 section ul {

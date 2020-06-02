@@ -164,6 +164,7 @@ function updateUserProfile(req, res, next) {
         lastname: req.body.lastname,
         age: req.body.age,
         gender: req.body.gender,
+        profilepic: req.file ? req.file.filename : null,
         preferredgender: req.body.preferredgender,
         description: req.body.description,
         hobby1 : req.body.hobby1,

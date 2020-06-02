@@ -16,7 +16,7 @@
                                         <div id="changeimage">
                                                 <label for="profilepicture"><i class="fas fa-pencil-alt"></i></label>
                                                 <input type="file" name="profilepicture" id="profilepicture"
-                                                        accept=image/* value="<%= user.profilepic.filename %>">
+                                                        accept=image/* value="<%= user.profilepic %>">
                                         </div>
 
                                 </div>
@@ -55,8 +55,8 @@
 
                                 <input type="text" name="dogname" placeholder="Name of your dog"
                                         value="<%= user.dogname %>"></input>
-                                <p id="dogpicture"><img src="../uploads/<%= user.dogpicture.filename %>"
-                                                alt="picture of user"></p>
+                                <p id="dogpicture"><img src="../uploads/<%= user.dogpicture %>" alt="picture of dog">
+                                </p>
 
 
                                 <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
