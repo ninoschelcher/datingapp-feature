@@ -274,7 +274,7 @@ body#login>section a:last-of-type {
     color: var(--orange);
 }
 
-.introduction>section div:first-of-type p {
+.introduction>section div:first-of-type p:not(:first-of-type) {
     max-width: 70%;
     font-family: var(--secondary);
 }
