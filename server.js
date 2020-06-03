@@ -1,4 +1,4 @@
-/* Express Setup */
+// Express Setup //
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -10,9 +10,11 @@ const multer = require('multer');
 const { ObjectID } = require('mongodb');
 require('dotenv').config();
 
+//Mongodb uri setup //
 const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST;
 let db;
 
+// Connection to mongodb //
 mongo.MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
   if (err) {
     throw err;
@@ -24,7 +26,7 @@ mongo.MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true
 
 var imgUploads = multer({dest: 'public/uploads/'})
 
-/* Express chain routes and other stuff */
+// Express setup routes, posts and get requests //
 app
   .use(express.static(`${__dirname}/public`))
   .use(bodyParser.urlencoded({ extended: false }))
@@ -56,7 +58,7 @@ app
   .listen(port);
 
 
-// Render the introduction page
+// Render the introduction page //
 function introduction(req, res) {
   res.render('introduction.ejs', {
     page: 'Introduction',
@@ -64,7 +66,7 @@ function introduction(req, res) {
   });
 }
 
-/* Function that sends the data filled in by the user to mongodb */
+// Function that sends the data filled in by the user to mongodb //
 function introductionForm(req, res) {
   req.session.user = {
     id: req.body.username,
@@ -87,13 +89,14 @@ function loadStep2(req, res) {
   });
 }
 
+// Submit form of step 2 and add new information (dogname and picture of dog) into current session //
 function submitStep2(req, res) {
   req.session.user.dogname = req.body.dogname;
   req.session.user.dogpicture = req.file ? req.file.filename : null;
-
   res.redirect('/step3/' + req.session.user.id);
 }
 
+// Render step3 page with the session information //
 function loadStep3(req, res) {
   res.render('step3.ejs', {
     page: 'Step 3',
@@ -101,13 +104,14 @@ function loadStep3(req, res) {
   });
 }
 
+// Submit form of step 3 and add new information (hobbies and user description) into current session //
 function submitStep3(req, res) {
   req.session.user.hobbies = req.body.hobbies
   req.session.user.description = req.body.description;
-
   res.redirect('/step4/' + req.session.user.id);
 }
 
+// Render step4 page with session information //
 function loadStep4(req, res) {
   res.render('step4.ejs', {
     page: 'Step 4',
@@ -115,12 +119,13 @@ function loadStep4(req, res) {
   });
 }
 
+//Submit form of step 4 and add new information (dog preference scenario) into current session //
 function submitStep4(req, res) {
   req.session.user.dogpref = req.body.dogpref;
-
   res.redirect('/step5/' + req.session.user.id);
 }
 
+// Render step 5 with session information //
 function loadStep5(req, res) {
   res.render('step5.ejs', {
     page: 'Step 5',
@@ -128,6 +133,9 @@ function loadStep5(req, res) {
   });
 }
 
+// Submit form of step 5 and add new information (profile picture) into current session //
+// Then insert all the information from the current user's session object into the database 'users' //
+// Then redirect to the profile page with the parameters ObjectId //
 function submitStep5(req, res, next) {
   req.session.user.profilepic = req.file ? req.file.filename : null;
   db.collection('users').insertOne(req.session.user, profileRedirect);
@@ -142,7 +150,7 @@ function submitStep5(req, res, next) {
   }
 }
 
-// Function that renders a page with the specific profile of a specific user //
+// Function that renders a page with the specific profile of a specific user by finding the current user's id //
 function getUserProfile(req, res, next) {
   db.collection('users').findOne({
     _id: new mongo.ObjectID(req.session.user._id),
@@ -208,6 +216,7 @@ function disableProfile(req, res) {
     if (err) {
       next(err);
     } else {
+      req.session.destroy();
       res.redirect('/');
     }
   }

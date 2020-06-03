@@ -379,6 +379,7 @@ body#login>section a:last-of-type {
 }
 
 .steps>section {
+    margin-bottom: 2em;
     padding: 2em;
     background-color: var(--white);
     max-width: 30%;
@@ -553,6 +554,10 @@ body#login>section a:last-of-type {
     bottom: 0;
 }
 
+.step4 section h1>p {
+    font-family: var(--secondary);
+}
+
 .step4 input[type="radio"] {
     opacity: 0.01;
     z-index: 100;
@@ -576,6 +581,10 @@ body#login>section a:last-of-type {
     max-width: 25%;
     border-radius: 10px;
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
+}
+
+.profile section h1, .preview section h1 {
+    margin: 0;
 }
 
 .profile a {
@@ -675,6 +684,10 @@ body#login>section a:last-of-type {
     padding: .5em;
     border: 1px solid var(--steel-blue);
     margin: 1em 0;
+}
+
+.profile section #dogpicture {
+    margin-top: 2.5em;
 }
 
 .profile section form:last-of-type button {
