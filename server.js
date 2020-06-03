@@ -37,7 +37,7 @@ app
     secret: process.env.SESSION_KEY,
   }))
   .set('view engine', 'ejs')
-  .post('/', introductionForm)
+  .post('/', submitIntroductionForm)
   .post('/step2form', imgUploads.single('dogpicture'),  submitStep2)
   .post('/step3form', submitStep3)
   .post('/step4form', submitStep4)
@@ -67,7 +67,7 @@ function introduction(req, res) {
 }
 
 // Function that sends the data filled in by the user to mongodb //
-function introductionForm(req, res) {
+function submitIntroductionForm(req, res) {
   req.session.user = {
     id: req.body.username,
     firstname: req.body.firstname,
@@ -168,7 +168,7 @@ function getUserProfile(req, res, next) {
 // Function that renders a page with how the profile of the current user looks like with all the data filled in //
 function previewUserProfile(req, res, next) {
   db.collection('users').findOne({
-    _id: new mongo.ObjectID(req.session.user._id),
+  _id: new mongo.ObjectID(req.session.user._id),
   }, showPreview);
 
   function showPreview(err, data) {
@@ -182,7 +182,8 @@ function previewUserProfile(req, res, next) {
 
 // Function that updates the fields from the profile page //
 function updateUserProfile(req, res, next) {
-  db.collection('users').updateOne({ _id: ObjectID(req.body._id) },
+  db.collection('users').updateOne({ 
+    _id: ObjectID(req.body._id) },
     {
       $set: {
         id: req.body.username,
@@ -209,8 +210,8 @@ function updateUserProfile(req, res, next) {
 
 // Function that deletes the current profile from the database //
 function disableProfile(req, res) {
-  db.collection('users').deleteOne( { _id : ObjectId(req.body._id) }, 
-  deleteUser);
+  db.collection('users').deleteOne({ 
+  _id : mongo.ObjectId(req.body._id) }, deleteUser);
 
   function deleteUser(err) {
     if (err) {

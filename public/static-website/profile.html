@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Meetyou &mdash; Step 4 </title>
+    <title>Meetyou &mdash; Profile </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico" />
@@ -35,41 +35,67 @@
         <div>
             <h1> 's Profile</h1>
             <p>On this page you are able to edit your personal information and interests that other people
-                can see</p>
+                can see. <a href="previewprofile.html">Preview Profile <i class="fas fa-long-arrow-alt-right"></i></a>
+            </p>
             <h2>Basic Information</h2>
-            <form action="/updateuser" method="POST">
-                <p class="profilepictures"><img src="" alt="picture of user">
+            <form>
+                <div>
+
+                    <p id=" profilepictures"><img src="../uploads/<%= user.profilepic %>" alt="picture of user"></p>
+                    <div id="changeimage">
+                        <label for="profilepicture"><i class="fas fa-pencil-alt"></i></label>
+                        <input type="file" name="profilepicture" id="profilepicture" accept=image/*
+                            value="<%= user.profilepic %>">
+                    </div>
+
+                </div>
+                <p><label for="username">Username</label> <input type="text" id="username" name="username"
+                        value="<%= user.id %>" autocomplete="off">
                 </p>
-                <p><label for="username">Username</label> <input type="text" id="username" name="username">
+                <p><label for="firstname">First name:</label> <input type="text" id="firstname" name="firstname"
+                        value="<%= user.firstname %>" autocomplete="off">
                 </p>
-                <p><label for="firstname">First name:</label> <input type="text" id="firstname" name="firstname">
+                <p><label for="lastname">Last name:</label> <input name="lastname" id="lastname" type="text"
+                        value="<%= user.lastname %>" autocomplete="off"> </p>
+                <p><label for="age">Age:</label> <input name="age" id="age" type="number" value="<%= user.age %>"
+                        autocomplete="off"> </p>
+                <p><label for="gender">Gender:</label> <input name="gender" id="gender" type="text"
+                        value="<%= user.gender %>">
                 </p>
-                <p><label for="lastname">Last name:</label> <input name="lastname" id="lastname" type="text"> </p>
-                <p><label for="age">Age:</label> <input name="age" id="age" type="number"> </p>
-                <p><label for="gender">Gender:</label> <input name="gender" id="gender" type="text"> </p>
                 <p><label for="preferredgender">Looking for:</label> <input id="preferredgender" name="preferredgender"
-                        type="text">
+                        type="text" value="<%= user.preferredgender %>" autocomplete="off">
                 </p>
                 <p><label for="description">Description:</label> <textarea id="description" name="description"
-                        type="textarea" rows="4" cols="50"></textarea>
+                        type="textarea" rows="4" cols="50"><%= user.description %></textarea>
                 </p>
 
 
                 <h2>Hobbies</h2>
-                <p><label for="hobby1">Hobby 1:</label> <input type="text" id="hobby1" name="hobby1">
+                <p><label for="hobbies">Hobby 1:</label> <input type="text" id="hobbies" name="hobbies"
+                        value="<%= user.hobbies[0] %>" autocomplete="off">
                 </p>
-                <p><label for="hobby2">Hobby 2:</label> <input type="text" id="hobby2" name="hobby2">
+                <p><label for="hobbies">Hobby 2:</label> <input type="text" id="hobbies" name="hobbies"
+                        value="<%= user.hobbies[1] %>" autocomplete="off">
                 </p>
-                <p><label for="hobby3">Hobby 3:</label> <input name="hobby3" id="hobby3" type="text"> </p>
+                <p><label for="hobbies">Hobby 3:</label> <input name="hobbies" id="hobbies" type="text"
+                        value="<%= user.hobbies[2] %>" autocomplete="off"> </p>
                 <h2>Your Dog</h2>
-                <figure>
-                    <input type="text" name="dogname"></input>
 
-                    <img src="" alt=" picture of dog">
-                </figure>
-                <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
-                    Information</button>
+                <input type="text" name="dogname" placeholder="Name of your dog" value="<%= user.dogname %>"></input>
+                <p id="dogpicture"><img src="../uploads/<%= user.dogpicture %>" alt="picture of dog">
+                </p>
+
+
+                <button>Update information</button>
+
             </form>
+            <hr>
+            <form>
+                <button>Update Profile</button>
+                <p>Warning, this will delete your profile forever!</p>
+
+            </form>
+
         </div>
 
     </section>
