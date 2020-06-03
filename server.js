@@ -153,7 +153,7 @@ function submitStep5(req, res, next) {
 // Function that renders a page with the specific profile of a specific user by finding the current user's id //
 function getUserProfile(req, res, next) {
   db.collection('users').findOne({
-    _id: new mongo.ObjectID(req.session.user._id),
+    _id: ObjectID(req.session.user._id),
   }, showProfile);
 
   function showProfile(err, data) {
@@ -209,7 +209,7 @@ function updateUserProfile(req, res, next) {
 
 // Function that deletes the current profile from the database //
 function disableProfile(req, res) {
-  db.collection('users').deleteOne( { _id : new mongo.ObjectId(req.body._id) }, 
+  db.collection('users').deleteOne( { _id : ObjectId(req.body._id) }, 
   deleteUser);
 
   function deleteUser(err) {
