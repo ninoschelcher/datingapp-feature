@@ -38,12 +38,13 @@
             <article>
                 <p><img src="../uploads/<%= user.profilepic %>" alt="picture of user"></p>
                 <div>
-                    <h2><%= user.firstname %>, <%= user.age %> </h2>
-                    <p><%= user.description %></p>
+                    <h2>Naam, Leeftijd </h2>
+                    <p>Beschrijving</p>
                     <ul>
-                        <% for(let i = 0; i < user.hobbies.length; i++) { %>
-                        <li><%= user.hobbies[i]%></li>
-                        <% } %>
+                        <li>hobby1</li>
+                        <li>hobby2</li>
+                        <li>hobby3</li>
+
                     </ul>
                 </div>
             </article>
