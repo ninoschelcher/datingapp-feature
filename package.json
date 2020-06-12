@@ -10,7 +10,8 @@
   "description": "Feature for dating app",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "node server.js"
   },
   "devDependencies": {
     "camelcase": "^6.0.0",
