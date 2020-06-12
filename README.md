@@ -17,5 +17,3 @@ There are a few steps required to do so you can get the feature up and running o
 
 ### Run project
 * type `$ npm run start` to start the server
-
-test
