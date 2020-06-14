@@ -297,6 +297,9 @@ body#login>section a:last-of-type {
 .introduction>section div:last-of-type form input {
     margin-bottom: 1.2em;
     height: 35px;
+    border: 1px solid #BFBFBF;
+    border-radius: 2px;
+    padding-left: .5em;
 }
 
 .introduction ul, .profile ul {
@@ -348,6 +351,7 @@ body#login>section a:last-of-type {
     font-size: 1em;
     outline: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .introduction section button:last-of-type::after {
@@ -440,6 +444,7 @@ body#login>section a:last-of-type {
     width: 15em;
     margin-bottom: 2em;
     font-size: .9em;
+    border: 1px solid #BFBFBF;
     padding-left: .4em;
 }
 
@@ -460,6 +465,7 @@ body#login>section a:last-of-type {
     color: var(--steel-blue);
     position: relative;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .steps section nav a:first-of-type::before {
@@ -501,6 +507,7 @@ body#login>section a:last-of-type {
     width: 200px;
     height: 35px;
     margin-bottom: .7em;
+    border: 1px solid #BFBFBF;
 }
 
 .step3 section article>article form textarea {
