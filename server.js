@@ -8,6 +8,7 @@ const mongo = require('mongodb');
 const session = require('express-session');
 const multer = require('multer');
 const { ObjectID } = require('mongodb');
+var MemoryStore = require('memorystore')(session)
 require('dotenv').config();
 
 //Mongodb uri setup //
@@ -35,6 +36,9 @@ app
     resave: false,
     saveUninitialized: true,
     secret: process.env.SESSION_KEY,
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
   }))
   .set('view engine', 'ejs')
   .post('/', submitIntroductionForm)
