@@ -1,7 +1,7 @@
 // Express Setup //
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const find = require('array-find');
 const mongo = require('mongodb');
@@ -59,7 +59,7 @@ app
   .use((req, res) => {
     res.status(404).send('404 Page not found');
   })
-  .listen(port);
+  .listen(PORT);
 
 
 // Render the introduction page //
