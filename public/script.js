@@ -1,5 +1,9 @@
 /* https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript used preview images when uploading them */
 const dogPictureInput = document.querySelector('#dogpicture');
+const profilePictureInput = document.querySelector('#profilepicture');
+const profilePicture = document.querySelector('#change-profipic');
+const editProfilePicture = document.querySelector('#changeimage');
+
 
 if (dogPictureInput) {
 dogPictureInput.addEventListener('change', (event) => {
@@ -7,8 +11,6 @@ dogPictureInput.addEventListener('change', (event) => {
     dogPicture.src = URL.createObjectURL(event.target.files[0]);
 });
 }
-
-const profilePictureInput = document.querySelector('#profilepicture');
 
 if(profilePictureInput) {
 profilePictureInput.addEventListener('change', (event) => {
@@ -19,13 +21,17 @@ profilePictureInput.addEventListener('change', (event) => {
 
 
 /* Profile Enhancements */
-
-const profilePicture = document.querySelector('#profilepictures');
-const editProfilePicture = document.querySelector('#changeimage');
-
 if(profilePicture) {
 profilePicture.addEventListener('mouseover', () => {
     editProfilePicture.style.display = "block";
+});
+
+profilePicture.addEventListener('mouseleave', () => {
+    editProfilePicture.style.display = "none";
+})
+
+editProfilePicture.addEventListener('mouseover', () => {
+    editProfilePicture.style.display = "block";  
 });
 }
 
