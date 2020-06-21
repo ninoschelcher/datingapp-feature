@@ -389,6 +389,7 @@ body#login>section a:last-of-type {
     max-width: 30%;
     border-radius: 10px;
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .steps>section h1 {
@@ -748,6 +749,42 @@ body#login>section a:last-of-type {
 
 .preview img {
     width: 100%;
+}
+
+.progress {
+    width: 100%;
+    margin: 0 auto;
+    height: 15px;
+    background-color: var(--purple-navy);
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.steps.step2 .progressBar {
+    width: 20%;
+}
+
+.steps.step3 .progressBar {
+    width: 40%;
+}
+
+.steps.step4 .progressBar {
+    width: 60%;
+}
+
+.steps.step5 .progressBar {
+    width: 80%;
+}
+
+.progressBar {
+    position: absolute;
+    background-color: var(--orange);
+    height: 100%;
+    width: 0%;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.4s ease;
 }
 
 @media only screen and (max-width:1440px) {
