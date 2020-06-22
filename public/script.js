@@ -1,15 +1,25 @@
 /* https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript used preview images when uploading them */
-const dogPictureInput = document.querySelector('#dogpicture');
-const profilePictureInput = document.querySelector('#profilepicture');
+
 const profilePicture = document.querySelector('#change-profipic');
 const editProfilePicture = document.querySelector('#changeimage');
-
 const secondButton = document.querySelector("#step2button");
 const thirdButton = document.querySelector("#step3button");
 const fourthButton = document.querySelector("#step4button");
 const fifthButton = document.querySelector("#step5button");
 const progressBar = document.querySelector(".progressBar");
+const fileInput = document.querySelector("input[type='file']")
+const picturePreviews = document.querySelectorAll(".picpreview");
 
+
+/* Image Preview */
+if(fileInput) {
+fileInput.addEventListener('change', (event) => {
+    picturePreviews.forEach(preview => 
+        preview.src = URL.createObjectURL(event.target.files[0]));
+})
+}
+
+/* Progress Bar */
 if(secondButton) {
 secondButton.addEventListener('click', () => {
     progressBar.style.width = "40%";
@@ -34,22 +44,6 @@ fifthButton.addEventListener('click', () => {
     progressBar.style.width = "100%";
 });
 }
-
-
-if (dogPictureInput) {
-dogPictureInput.addEventListener('change', (event) => {
-    const dogPicture = document.querySelector('#picture-dog');
-    dogPicture.src = URL.createObjectURL(event.target.files[0]);
-});
-}
-
-if(profilePictureInput) {
-profilePictureInput.addEventListener('change', (event) => {
-    const profilePicture = document.querySelector('#profile-picturepreview');
-    profilePicture.src = URL.createObjectURL(event.target.files[0]);
-});
-}
-
 
 /* Profile Enhancements */
 if(profilePicture) {

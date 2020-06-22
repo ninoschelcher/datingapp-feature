@@ -408,7 +408,7 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.step2 #picture-dog, .step5 #profile-picturepreview {
+.picpreview {
     width: 170px;
     border-radius: 100%;
     margin: 0 auto;
