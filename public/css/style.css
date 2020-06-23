@@ -31,6 +31,10 @@ ul {
     margin-block-start: 0;
 }
 
+li {
+    position: relative;
+}
+
 button {
     border: none;
     text-decoration: none;
@@ -51,6 +55,7 @@ body {
 
 header {
     margin-bottom: 1.5em;
+    text-align: center;
 }
 
 header nav>div {
@@ -265,36 +270,36 @@ body#login>section a:last-of-type {
     box-shadow: 10px 10px 36px 1px rgba(0, 0, 0, 0.1);
 }
 
-.introduction>section>div:first-of-type {
+.introduction>section>div:first-of-type, .allintroduction>div:first-of-type {
     width: 60%;
     padding-right: 1em;
 }
 
-.introduction>section h1 {
+.introduction>section h1, .allintroduction h1 {
     color: var(--orange);
 }
 
-.introduction>section div:first-of-type p:not(:first-of-type) {
+.introduction>section div:first-of-type p:not(:first-of-type), .allintroduction>div:first-of-type p:not(:first-of-type) {
     max-width: 70%;
     font-family: var(--secondary);
 }
 
-.introduction>section>div:last-of-type {
+.introduction>section>div:last-of-type, .allintroduction>div:last-of-type {
     width: 40%;
     padding-right: 2em;
 }
 
-.introduction>section div:last-of-type form, .step3 section article>article form {
+.introduction>section div:last-of-type form, .step3 section article>article form, .allintroduction, .allstep3 article {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
 }
 
-.introduction>section div:last-of-type form label, .step3 section article>article form label {
+.introduction>section div:last-of-type form label, .step3 section article>article form label, .allintroduction div:last-of-type label, .allstep3 div:last-of-type label {
     margin-bottom: .5em;
 }
 
-.introduction>section div:last-of-type form input {
+.introduction>section div:last-of-type form input, .allintroduction div:last-of-type input {
     margin-bottom: 1.2em;
     height: 35px;
     border: 1px solid #BFBFBF;
@@ -302,12 +307,12 @@ body#login>section a:last-of-type {
     padding-left: .5em;
 }
 
-.introduction ul, .profile ul {
+.introduction ul, .profile ul, .allintroduction ul {
     display: flex;
     flex-wrap: wrap;
 }
 
-.introduction form li, .profile form li {
+.introduction form li, .profile form li, .allintroduction li {
     margin: .6em .7em .3em 0;
     width: 80px;
     height: 50px;
@@ -315,7 +320,7 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.introduction ul li label, .introduction ul li input, .profile ul li label, .profile ul li input {
+.introduction ul li label, .introduction ul li input, .profile ul li label, .profile ul li input, .allintroduction ul li label, .allintroduction ul li input {
     display: block;
     position: absolute;
     top: 0;
@@ -324,18 +329,18 @@ body#login>section a:last-of-type {
     bottom: 0;
 }
 
-.introduction input[type="radio"], .profile input[type="radio"] {
+.introduction input[type="radio"], .profile input[type="radio"], .allintroduction input[type="radio"] {
     opacity: 0.01;
     z-index: 100;
 }
 
-.introduction input[type="radio"]:checked+label, .checked+label, .profile input[type="radio"]:checked+label {
+.introduction input[type="radio"]:checked+label, .checked+label, .profile input[type="radio"]:checked+label, .allintroduction input[type="radio"]:checked+label {
     background-color: var(--orange);
     color: var(--white);
     transition: .3s;
 }
 
-.introduction form .radios label:not(:first-child), .profile form .radios label:not(:first-child) {
+.introduction form .radios label:not(:first-child), .profile form .radios label:not(:first-child), .allintroduction .radios label:not(:first-child) {
     padding: 13px 5px 5px 5px;
     border: 1px solid var(--orange);
     cursor: pointer;
@@ -403,7 +408,7 @@ body#login>section a:last-of-type {
     font-family: var(--secondary);
 }
 
-.step2 form p:first-child, .step5 form p:first-child {
+.step2 form p:first-child, .step5 form p:first-child, .allstep2 p:first-child, .allstep5 p:first-child, {
     margin: 2em 0;
     text-align: center;
 }
@@ -415,14 +420,14 @@ body#login>section a:last-of-type {
     text-align: center;
 }
 
-.steps.step2 form div:first-of-type, .steps.step5 form div {
+.steps.step2 form div:first-of-type, .steps.step5 form div, .allstep2 div:first-of-type, .allstep5 div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2em 0;
 }
 
-.steps.step2 form div:first-of-type label, .steps.step5 form div label {
+.steps.step2 form div:first-of-type label, .steps.step5 form div label, .allstep2 div:first-of-type label, .allstep5 div label {
     cursor: pointer;
     padding: 1em 1.5em;
     color: var(--orange);
@@ -430,17 +435,17 @@ body#login>section a:last-of-type {
     font-weight: bold;
 }
 
-.steps.step2 form div:first-of-type input, .steps.step5 form div input, .profile form div:first-of-type input, .profile form div:last-of-type input {
+.steps.step2 form div:first-of-type input, .steps.step5 form div input, .profile form div:first-of-type input, .profile form div:last-of-type input, .allstep2 div:first-of-type input, .allstep5 div:first-of-type input {
     display: none;
 }
 
-.steps.step2 form div:last-of-type {
+.steps.step2 form div:last-of-type, .allstep2 div:last-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.steps.step2 form div:last-of-type input {
+.steps.step2 form div:last-of-type input, .allstep2 div:last-of-type input {
     height: 3em;
     width: 15em;
     margin-bottom: 2em;
@@ -449,7 +454,7 @@ body#login>section a:last-of-type {
     padding-left: .4em;
 }
 
-.steps.step2 form div:last-of-type label {
+.steps.step2 form div:last-of-type label, .allstep2 div:last-of-type label {
     margin-bottom: .5em;
 }
 
@@ -499,30 +504,30 @@ body#login>section a:last-of-type {
     right: -20px;
 }
 
-.step3 section article>article div {
+.step3 section article>article div, .allstep3 article>article div {
     display: flex;
     flex-direction: column;
 }
 
-.step3 section article>article form input {
+.step3 section article>article form input, .allstep3 article>article input {
     width: 200px;
     height: 35px;
     margin-bottom: .7em;
     border: 1px solid #BFBFBF;
 }
 
-.step3 section article>article form textarea {
+.step3 section article>article form textarea, .allstep3 article>article textarea {
     max-width: 250px;
     margin-bottom: 2em;
     border: 1px solid #BFBFBF;
 }
 
-.step4 section ul {
+.step4 section ul, .allstep4 ul {
     display: flex;
     flex-wrap: wrap;
 }
 
-.step4 section li {
+.step4 section li, .allstep4 li {
     margin: .6em .7em .3em 0;
     width: 100px;
     height: 150px;
@@ -533,27 +538,27 @@ body#login>section a:last-of-type {
     background-position: center center;
 }
 
-.step4 form ul li:first-of-type {
+.step4 form ul li:first-of-type, .allstep4 ul li:first-of-type {
     /* https://www.rashondenwijzer.nl/rashonden/labrador-retriever */
     background-image: url('../images/dogs/labrador.jpg');
 }
 
-.step4 form ul li:nth-of-type(2) {
+.step4 form ul li:nth-of-type(2), .allstep4 ul li:nth-of-type(2) {
     /* https://bazoeki.com/honden/golden-retriever */
     background-image: url('../images/dogs/goldenreriever.jpg');
 }
 
-.step4 form ul li:nth-of-type(3) {
+.step4 form ul li:nth-of-type(3), .allstep4 ul li:nth-of-type(3) {
     /* https://nl.point.pet/de-12-beste-husky-namen/ */
     background-image: url('../images/dogs/husky.jpg');
 }
 
-.step4 form ul li:last-of-type {
+.step4 form ul li:last-of-type, .allstep4 ul li:last-of-type {
     /* https://www.dogbreedinfo.com/germanshepherd.htm */
     background-image: url('../images/dogs/shepherd.jpg');
 }
 
-.step4 ul li label, .step4 ul li input {
+.step4 ul li label, .step4 ul li input, .allstep4 ul li label, .allstep4 ul li input {
     display: block;
     position: absolute;
     top: 0;
@@ -562,20 +567,20 @@ body#login>section a:last-of-type {
     bottom: 0;
 }
 
-.step4 section h1>p {
+.step4 section h1>p, .allstep4 h1>p {
     font-family: var(--secondary);
 }
 
-.step4 input[type="radio"] {
+.step4 input[type="radio"], .allstep4 input[type="radio"] {
     opacity: 0.01;
     z-index: 100;
 }
 
-.step4 input[type="radio"]:checked+label, .checked+label {
+.step4 input[type="radio"]:checked+label, .checked+label, .allstep4 input[type="radio"]:checked+label {
     border: 2px solid green;
 }
 
-.step4 label {
+.step4 label, .allstep4 label {
     padding: 5px;
     border: 2px solid #CCC;
     cursor: pointer;
@@ -609,7 +614,7 @@ body#login>section a:last-of-type {
     vertical-align: middle;
 }
 
-.profile #profilepictures img, .profile #dogpicture img {
+.profile #profilepicture img, .profile #dogpicture img {
     width: 50%;
     height: 50%;
 }
@@ -786,6 +791,121 @@ body#login>section a:last-of-type {
     width: 0%;
     border-radius: 0 0 10px 10px;
     transition: all 0.4s ease;
+}
+
+#allsteps {
+    background-color: var(--orange);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#allsteps section {
+    background-color: #fff;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1em 2em;
+    border-radius: 10px 10px 0 0;
+}
+
+#allsteps h1 {
+    font-size: 1.7em;
+    margin: .5em 0;
+}
+
+.steptab {
+    display: block;
+}
+
+.steptab.show {
+    display: block;
+}
+
+.steptab.hide {
+    display: none;
+}
+
+#allstepsbody {
+    background-color: var(--orange);
+    padding-top: 3em;
+}
+
+#allsteps nav {
+    background-color: #fff;
+    width: 80%;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5em;
+    margin: 0 auto;
+}
+
+#allsteps nav button {
+    text-decoration: none;
+    color: var(--steel-blue);
+    position: relative;
+    text-align: right;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    margin: 0 1em;
+}
+
+#allsteps button:last-of-type::after {
+    content: '\f30b';
+    position: absolute;
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    top: 4px;
+    right: -20px;
+}
+
+#allsteps button:first-of-type::before {
+    content: '\f30a';
+    position: absolute;
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    top: 4px;
+    left: -20px;
+}
+
+.allstep2 article>article p:first-of-type, .allstep5 article>article p:first-of-type {
+    text-align: center;
+}
+
+#step3form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dogpicpreview, .profilepicpreview {
+    width: 170px;
+    border-radius: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.allintroduction {
+    display: flex;
+    flex-direction: row !important;
+}
+
+.allintroduction div:last-of-type {
+    display: flex;
+    flex-direction: column;
+}
+
+input.invalid {
+    background-color: #ffdddd;
+}
+
+input.valid {
+    background-color: transparent;
 }
 
 @media only screen and (max-width:1440px) {

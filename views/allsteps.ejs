@@ -1,0 +1,188 @@
+<%- include ("partials/head") %>
+<header>
+    <nav>
+        <a href="/"><img src="../images/logo2.png" alt=""></a>
+    </nav>
+</header>
+
+<body id="allstepsbody">
+    <div id="allsteps">
+        <form action="/submitallsteps" method="POST" id="submitallsteps" enctype="multipart/form-data">
+            <div class=" steptab">
+                <section class="allintroduction">
+                    <div>
+                        <p>Step 1/5</p>
+                        <h1>Hi 👋 Tell us about yourself..</h1>
+                        <p>Welcome! Thanks for signing up for MeetYou This is the application to find your match based
+                            on
+                            person
+                            and
+                            the dogs you like.
+                        </p>
+                        <p>
+                            To get to know you better we've prepared a few steps with questions you can answer so we can
+                            set
+                            up
+                            your
+                            profile with your information!
+                        </p>
+                    </div>
+                    <div>
+                        <label min="8" for="username">Username</label>
+                        <input required id="username" name="username" type="text" autocomplete="off">
+                        <label for="firstname">First Name</label>
+                        <input required id="firstname" name="firstname" type="text" autocomplete="off">
+                        <label for="lastname">Last Name</label>
+                        <input required id="lastname" name="lastname" type="text" autocomplete="off">
+                        <label for="age">Age</label>
+                        <input required id="age" min="18" name="age" type="number" autocomplete="off">
+                        <div class="radios">
+                            <label for="gender">Gender</label>
+                            <ul>
+                                <li>
+                                    <input id="gender1" name="gender" type="radio" value="male">
+                                    <label for="gender1">Male</label>
+                                </li>
+                                <li>
+                                    <input id="gender2" name="gender" type="radio" value="female">
+                                    <label for="gender2">Female</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="radios">
+                            <label for="preferredgender">Looking for</label>
+                            <ul>
+                                <li>
+                                    <input id="pref1" name="preferredgender" type="radio" value="male">
+                                    <label for="pref1">Male</label>
+                                </li>
+                                <li>
+                                    <input id="pref2" name="preferredgender" type="radio" value="female">
+                                    <label for="pref2">Female</label>
+                                </li>
+                                <li>
+                                    <input id="pref3" name="preferredgender" type="radio" value="both">
+                                    <label for="pref3">Both</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="steptab">
+                <section class="allstep allstep2">
+                    <article>
+                        <p>Step 2/5</p>
+                        <h1>Your dog 🐶</h1>
+                        <p>Hello Since we are all about dogs, we want to know what your dog looks
+                            like,
+                            upload a picture of your dog(s)!
+                        </p>
+                        <article>
+                            <p><img class="dogpicpreview" /></p>
+                            <div>
+                                <label for="dogpicture">Upload a picture of your dog!</label>
+                                <input required type="file" name="image" id="dogpicture" accept=image/*>
+                            </div>
+                            <div>
+                                <label for="dogname">Name of your dog</label>
+                                <input type="text" autocomplete="off" name="dogname" id="dogname">
+                            </div>
+                        </article>
+                    </article>
+                </section>
+            </div>
+
+            <div class="steptab">
+                <section class="allstep allstep3">
+                    <article>
+                        <p>Step 3/5</p>
+                        <h1>You and your hobbies ⚽</h1>
+                        <p>You know everybody has hobbies, fill in yours so we can match you to people with
+                            similar ones!
+                        </p>
+                        <article>
+                            <div id="firsthobby">
+                                <label for="hobbies">Hobby 1</label>
+                                <input type="text" autocomplete="off" name="hobbies" id="hobbies">
+                            </div>
+                            <div class="hobbies">
+                                <label for="hobbies">Hobby 2</label>
+                                <input type="text" autocomplete="off" name="hobbies" id="hobbies">
+                            </div>
+                            <div class="hobbies">
+                                <label for="hobbies">Hobby 3</label>
+                                <input type="text" autocomplete="off" name="hobbies" id="hobbies">
+                            </div>
+                            <label for="description">Describe yourself</label>
+                            <textarea name="description" rows="5" cols="20" id="description"
+                                placeholder="What should other people know about you?"></textarea>
+                        </article>
+                    </article>
+                </section>
+            </div>
+
+            <div class="steptab">
+                <section class="allstep allstep4">
+                    <article>
+                        <p>Step 4/5</p>
+                        <h1>Dog Scenario 🐶</h1>
+                        <p>
+                            You signed up for this platform cause you like dogs, and you want to find love. If you had
+                            to
+                            choose
+                            one
+                            of
+                            these 4 dogs, which one do you think looks the cutest?
+                        </p>
+                        <article>
+                            <ul>
+                                <li>
+                                    <input id="dog1" name="dogpref" value="Labrador" type="radio">
+                                    <label for="dog1"></label>
+                                </li>
+                                <li>
+                                    <input id="dog2" name="dogpref" value="Golden Retriever" type="radio">
+                                    <label for="dog2"></label>
+                                </li>
+                                <li>
+                                    <input id="dog3" name="dogpref" value="Syberian Husky" type="radio">
+                                    <label for="dog3"></label>
+                                </li>
+                                <li>
+                                    <input id="dog4" name="dogpref" value="German Shepherd" type="radio">
+                                    <label for="dog4"></label>
+                                </li>
+                            </ul>
+                        </article>
+                    </article>
+                </section>
+            </div>
+
+            <div class="steptab">
+                <section class="allstep allstep5">
+                    <article>
+                        <p>Step 5/5</p>
+                        <h1>Show yourself! 📸</h1>
+                        <p>We know a lot more about you now. Its time to upload a picture of yourself so we
+                            can show your face to other people on this platform!
+                        </p>
+                        <article>
+                            <p><img class="profilepicpreview" /></p>
+                            <div>
+                                <label for="profilepicture">Upload a picture of yourself</label>
+                                <input type="file" name="image" id="profilepicture" accept=image/*>
+                            </div>
+                        </article>
+                    </article>
+                </section>
+            </div>
+            <nav>
+                <button type="button" id="previousStep">Previous Step</button>
+                <button type="button" id="nextStep">Next Step</button>
+            </nav>
+        </form>
+    </div>
+
+    <%- include ("partials/footer") %>

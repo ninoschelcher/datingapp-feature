@@ -7,57 +7,72 @@ const thirdButton = document.querySelector("#step3button");
 const fourthButton = document.querySelector("#step4button");
 const fifthButton = document.querySelector("#step5button");
 const progressBar = document.querySelector(".progressBar");
-const fileInput = document.querySelector("input[type='file']")
-const picturePreviews = document.querySelectorAll(".picpreview");
 
+const dogPicPreview = document.querySelector(".dogpicpreview");
+const profilePicPreview = document.querySelector(".profilepicpreview");
+const profilePicInput = document.querySelector("#profilepicture");
+const dogPicInput = document.querySelector("#dogpicture");
+const previousStep = document.querySelector("#previousStep");
+const nextStep = document.querySelector("#nextStep");
+let currentTab = 0; 
 
-/* Image Preview */
-if(fileInput) {
-fileInput.addEventListener('change', (event) => {
-    picturePreviews.forEach(preview => 
-        preview.src = URL.createObjectURL(event.target.files[0]));
-})
-}
-
-/* Progress Bar */
-if(secondButton) {
-secondButton.addEventListener('click', () => {
-    progressBar.style.width = "40%";
-});
-}
-
-if(thirdButton) {
-thirdButton.addEventListener('click', () => {
-    progressBar.style.width = "60%";
-});
-}
-
-
-if (fourthButton) {
-fourthButton.addEventListener('click', () => {
-    progressBar.style.width = "80%";
-});
-}
-
-if(fifthButton) {
-fifthButton.addEventListener('click', () => {
-    progressBar.style.width = "100%";
-});
-}
-
-/* Profile Enhancements */
-if(profilePicture) {
-profilePicture.addEventListener('mouseover', () => {
-    editProfilePicture.style.display = "block";
+dogPicInput.addEventListener('change', (event) => {
+    dogPicPreview.src = URL.createObjectURL(event.target.files[0]);
 });
 
-profilePicture.addEventListener('mouseleave', () => {
-    editProfilePicture.style.display = "none";
-})
-
-editProfilePicture.addEventListener('mouseover', () => {
-    editProfilePicture.style.display = "block";  
+profilePicInput.addEventListener('change', (event) => {
+    profilePicPreview.src = URL.createObjectURL(event.target.files[0]);
 });
+
+const stepTab = document.querySelectorAll(".steptab").forEach(step => step.style.display = "none");
+const changeStep = (nextStep) => {
+    const stepTab = document.getElementsByClassName("steptab");
+    if (nextStep == 1 && !validateForm()) return false;
+
+    stepTab[currentTab].style.display = "none";
+    currentTab = currentTab + nextStep;
+    if (currentTab >= stepTab.length) {
+        document.getElementById("submitallsteps").submit();
+        return false;
+      }
+    showStep(currentTab);
+  }
+
+const showStep = (currentStep) => {
+  const stepTab = document.getElementsByClassName("steptab");
+  stepTab[currentStep].style.display = "block";
+  if (currentStep == 0) {
+    previousStep.style.display = "none";
+  } else {
+    previousStep.style.display = "block";
+  }
+  if (currentStep == (stepTab.length - 1)) {
+    nextStep.innerHTML = "Submit";
+  } else {
+    nextStep.innerHTML = "Next Step";
+  }
 }
+
+function validateForm() {
+    
+    let valid = true;
+    const stepTab = document.getElementsByClassName("steptab");
+    const inputs = stepTab[currentTab].getElementsByTagName("input");
+    for (i = 0; i < inputs.length; i++) {
+      if (inputs[i].value == "") {
+        inputs[i].className += " invalid";
+        valid = false;
+      }
+    }
+    if (valid) {
+      stepTab[currentTab].className += " valid";
+    }
+    return valid; 
+  }
+
+nextStep.addEventListener('click', function(){changeStep(1)});
+previousStep.addEventListener('click', function(){changeStep(-1)});
+showStep(currentTab); 
+
 
 

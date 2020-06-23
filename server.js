@@ -31,7 +31,7 @@ var imgUploads = multer({dest: 'public/uploads/'})
 app
   .use(express.static(`${__dirname}/public`))
   .use(bodyParser.urlencoded({ extended: false }))
-  .use(bodyParser.json())
+  .use(bodyParser.json())  
   .use(session({
     resave: false,
     saveUninitialized: true,
@@ -49,7 +49,9 @@ app
   .post('/updateuser',imgUploads.single('profilepicture'), updateUserProfile)
   .post('/signout', signOutUser)
   .post('/disableprofile', disableProfile)
+  .post('/submitallsteps', submitAllSteps, imgUploads.array('image'))
   .get('/', introduction)
+  .get('/allsteps', allSteps)
   .get('/step2/:id', loadStep2)
   .get('/step3/:id', loadStep3)
   .get('/step4/:id', loadStep4)
@@ -233,3 +235,36 @@ function signOutUser(req, res) {
   res.redirect('/')
 }
 
+function allSteps(req,res) {
+  res.render('allsteps', {
+    page: 'Steps'
+  });
+
+}
+
+function submitAllSteps(req,res) {
+  console.log(req.body);
+  req.session.user = {
+    id: req.body.username,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    age: req.body.age,
+    gender: req.body.gender,
+    image: req.files ? req.files.filename : null,
+    preferredgender: req.body.preferredgender,
+    description: req.body.description,
+    hobbies: req.body.hobbies,
+    dogname: req.body.dogname,
+  }
+  
+  db.collection('users').insertOne(req.session.user, profileRedirect);
+
+  function profileRedirect(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      req.session.user._id = data.insertedId
+      res.redirect('/profile/' + req.session.user._id);
+    }
+  }
+}
