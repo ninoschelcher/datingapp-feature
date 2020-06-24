@@ -965,6 +965,7 @@ input.valid {
     position: absolute;
     top: 0;
     left: 10%;
+    display: none;
 }
 
 .allprogressBar {

@@ -16,7 +16,7 @@ const nextStep = document.querySelector("#nextStep");
 const navSteps = document.querySelector("#navsteps");
 const stepTab = document.querySelectorAll(".steptab");
 const stepsSubmit = document.querySelector("#allstepssubmit");
-let currentTab = 0; 
+const progressBars = document.querySelectorAll(".allprogress");
 
 dogPicInput.addEventListener('change', (event) => {
     dogPicPreview.src = URL.createObjectURL(event.target.files[0]);
@@ -26,9 +26,13 @@ profilePicInput.addEventListener('change', (event) => {
     profilePicPreview.src = URL.createObjectURL(event.target.files[0]);
 });
 
+progressBars.forEach(progress => progress.style.display = "block");
 stepTab.forEach(step => step.style.display = "none");
+
 stepsSubmit.style.display = "none";
 navSteps.style.display = "flex";
+
+let currentTab = 0; 
 
 const changeStep = (nextStep) => {
     const stepTab = document.getElementsByClassName("steptab");
@@ -44,9 +48,24 @@ const changeStep = (nextStep) => {
 
 const showStep = (currentStep) => {
   const stepTab = document.getElementsByClassName("steptab");
-  const progressBar = document.getElementsByClassName("allprogressBar");
+  const progressBar = stepTab[currentStep].getElementsByClassName("allprogressBar");
+
   stepTab[currentStep].style.display = "block";
-  
+
+  for(i = 0; i < progressBar.length; i++) {
+    if(currentStep == 0) {
+      progressBar[i].style.width = "0%";
+    } else if (currentStep == 1) {
+      progressBar[i].style.width = "20%";
+    } else if (currentStep == 2) {
+      progressBar[i].style.width = "40%";
+    } else if (currentStep == 3) {
+      progressBar[i].style.width = "60%";
+    } else if (currentStep == 4) {
+      progressBar[i].style.width = "80%";
+    } 
+  }
+
   if (currentStep == 0) {
     previousStep.style.display = "none";
   } else {
@@ -60,17 +79,17 @@ const showStep = (currentStep) => {
 }
 
 const validateForm = () => {
-    let valid = true;
-    const stepTab = document.getElementsByClassName("steptab");
-    const inputs = stepTab[currentTab].getElementsByTagName("input");
-    for (i = 0; i < inputs.length; i++) {
-      if (inputs[i].value == "") {
-        valid = false;
-        inputs[i].className += " invalid";
-      } else {
-        inputs[i].className += " valid";
-      }
+  let valid = true;
+  const stepTab = document.getElementsByClassName("steptab");
+  const inputs = stepTab[currentTab].getElementsByTagName("input");
+  for (i = 0; i < inputs.length; i++) {
+    if (inputs[i].value == "") {
+      valid = false;
+      inputs[i].className += " invalid";
+    } else {
+      inputs[i].className += " valid";
     }
+  }
     return valid; 
   }
 
