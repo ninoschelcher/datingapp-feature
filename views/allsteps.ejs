@@ -7,7 +7,7 @@
 
 <body id="allstepsbody">
     <div id="allsteps">
-        <form action="/submitallsteps" method="POST" id="submitallsteps" enctype="multipart/form-data">
+        <form action="/submitallsteps" method="POST" id="submitallsteps">
             <div class=" steptab">
                 <section class="allintroduction">
                     <div>
@@ -174,11 +174,12 @@
                                 <label for="profilepicture">Upload a picture of yourself</label>
                                 <input type="file" name="image" id="profilepicture" accept=image/*>
                             </div>
+                            <button id="allstepssubmit">Submit</button>
                         </article>
                     </article>
                 </section>
             </div>
-            <nav>
+            <nav id="navsteps">
                 <button type="button" id="previousStep">Previous Step</button>
                 <button type="button" id="nextStep">Next Step</button>
             </nav>

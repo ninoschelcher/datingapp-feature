@@ -14,6 +14,9 @@ const profilePicInput = document.querySelector("#profilepicture");
 const dogPicInput = document.querySelector("#dogpicture");
 const previousStep = document.querySelector("#previousStep");
 const nextStep = document.querySelector("#nextStep");
+const navSteps = document.querySelector("#navsteps");
+const stepTab = document.querySelectorAll(".steptab");
+const stepsSubmit = document.querySelector("#allstepssubmit")
 let currentTab = 0; 
 
 dogPicInput.addEventListener('change', (event) => {
@@ -24,7 +27,10 @@ profilePicInput.addEventListener('change', (event) => {
     profilePicPreview.src = URL.createObjectURL(event.target.files[0]);
 });
 
-const stepTab = document.querySelectorAll(".steptab").forEach(step => step.style.display = "none");
+stepTab.forEach(step => step.style.display = "none");
+stepsSubmit.style.display = "none";
+navSteps.style.display = "flex";
+
 const changeStep = (nextStep) => {
     const stepTab = document.getElementsByClassName("steptab");
     if (nextStep == 1 && !validateForm()) return false;
@@ -54,7 +60,6 @@ const showStep = (currentStep) => {
 }
 
 function validateForm() {
-    
     let valid = true;
     const stepTab = document.getElementsByClassName("steptab");
     const inputs = stepTab[currentTab].getElementsByTagName("input");

@@ -816,6 +816,7 @@ body#login>section a:last-of-type {
 
 .steptab {
     display: block;
+    margin: 1em 0;
 }
 
 .steptab.show {
@@ -838,7 +839,7 @@ body#login>section a:last-of-type {
     display: flex;
     justify-content: center;
     padding-bottom: 1.5em;
-    margin: 0 auto;
+    margin: -16px auto;
 }
 
 #allsteps nav button {
@@ -864,7 +865,7 @@ body#login>section a:last-of-type {
     right: -20px;
 }
 
-#allsteps button:first-of-type::before {
+#navsteps button:first-of-type::before {
     content: '\f30a';
     position: absolute;
     display: block;
@@ -872,6 +873,10 @@ body#login>section a:last-of-type {
     font-weight: 900;
     top: 4px;
     left: -20px;
+}
+
+nav#navsteps {
+    display: none;
 }
 
 .allstep2 article>article p:first-of-type, .allstep5 article>article p:first-of-type {
@@ -898,6 +903,7 @@ body#login>section a:last-of-type {
 .allintroduction div:last-of-type {
     display: flex;
     flex-direction: column;
+    margin-top: 1em;
 }
 
 input.invalid {
@@ -906,6 +912,32 @@ input.invalid {
 
 input.valid {
     background-color: transparent;
+}
+
+.allstep5>article article {
+    text-align: center;
+}
+
+.allstep5>article article button {
+    text-decoration: none;
+    color: var(--steel-blue);
+    position: relative;
+    text-align: right;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.allstep5>article article button::after {
+    content: '\f30b';
+    position: absolute;
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    top: 4px;
+    right: -20px;
 }
 
 @media only screen and (max-width:1440px) {
