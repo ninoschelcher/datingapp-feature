@@ -614,7 +614,7 @@ body#login>section a:last-of-type {
     vertical-align: middle;
 }
 
-.profile #profilepicture img, .profile #dogpicture img {
+.profile #profilepictures img, .profile #dogpicture img {
     width: 50%;
     height: 50%;
 }
@@ -799,13 +799,14 @@ body#login>section a:last-of-type {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5em;
 }
 
 #allsteps section {
     background-color: #fff;
     max-width: 80%;
     margin: 0 auto;
-    padding: 1em 2em;
+    padding: 2em;
     border-radius: 10px 10px 0 0;
 }
 
@@ -817,6 +818,7 @@ body#login>section a:last-of-type {
 .steptab {
     display: block;
     margin: 1em 0;
+    position: relative;
 }
 
 .steptab.show {
@@ -898,6 +900,7 @@ nav#navsteps {
 .allintroduction {
     display: flex;
     flex-direction: row !important;
+    padding-top: 1em;
 }
 
 .allintroduction div:last-of-type {
@@ -938,6 +941,39 @@ input.valid {
     font-weight: 900;
     top: 4px;
     right: -20px;
+}
+
+.inputerror {
+    display: none;
+}
+
+.inputerror.invalid {
+    display: block;
+    color: red;
+}
+
+.inputerror.valid {
+    display: none;
+}
+
+.allprogress {
+    width: 80%;
+    margin: 0 auto;
+    height: 15px;
+    background-color: var(--purple-navy);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    top: 0;
+    left: 10%;
+}
+
+.allprogressBar {
+    position: absolute;
+    background-color: var(--orange);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.4s ease;
 }
 
 @media only screen and (max-width:1440px) {

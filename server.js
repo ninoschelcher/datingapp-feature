@@ -49,7 +49,7 @@ app
   .post('/updateuser',imgUploads.single('profilepicture'), updateUserProfile)
   .post('/signout', signOutUser)
   .post('/disableprofile', disableProfile)
-  .post('/submitallsteps', submitAllSteps, imgUploads.array('image'))
+  .post('/submitallsteps', imgUploads.array('image'), submitAllSteps, )
   .get('/', introduction)
   .get('/allsteps', allSteps)
   .get('/step2/:id', loadStep2)
@@ -167,6 +167,7 @@ function getUserProfile(req, res, next) {
       next(err);
     } else {
       res.render('profile.ejs', { user: data, page: 'Profile' });
+      console.log(data.image[0]);
     }
   }
 }
@@ -243,14 +244,13 @@ function allSteps(req,res) {
 }
 
 function submitAllSteps(req,res) {
-  console.log(req.body);
   req.session.user = {
     id: req.body.username,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     age: req.body.age,
     gender: req.body.gender,
-    image: req.files ? req.files.filename : null,
+    image: req.files,
     preferredgender: req.body.preferredgender,
     description: req.body.description,
     hobbies: req.body.hobbies,

@@ -11,19 +11,12 @@
                         <h2>Basic Information</h2>
                         <form action="/updateuser" id="information" method="POST" enctype="multipart/form-data">
                                 <div id="change-profipic">
-                                        <p id="profilepictures"><img src="../uploads/<%= user.profilepic %>"
+                                        <p id="profilepictures"><img src="../uploads/<%= user.image[1].filename %>"
                                                         alt="picture of user"></p>
-                                        <% if (user.profilepic) { %>
-                                        <div id="changeimage">
-                                                <label for="profilepicture"><i class="fas fa-pencil-alt"></i></label>
-                                                <input type="file" name="profilepicture" id="profilepicture"
-                                                        accept=image/* value="<%= user.image[0] %>">
 
-                                        </div>
-                                        <% } else { %>
-                                        <label for="profilepicture">Upload a picture</label>
-                                        <input type="file" name="profilepicture" accept=image/*>
-                                        <% } %>
+                                        <label for="profilepicture">Change your profilepicture</label>
+                                        <input type="file" name="profilepicture" id="profilepicture" accept=image/*
+                                                value="<%= user._id %>">
 
                                 </div>
                                 <p><label for="username">Username</label> <input type="text" id="username"
@@ -61,9 +54,9 @@
 
                                 <input type="text" name="dogname" placeholder="Name of your dog"
                                         value="<%= user.dogname %>"></input>
-                                <p id="dogpicture"><img src="../uploads/<%= user.dogpicture %>" alt="picture of dog">
+                                <p id="dogpicture"><img src="../uploads/<%= user.image[0].filename %>"
+                                                alt="picture of dog">
                                 </p>
-
 
                                 <button value="<%= user._id%>" name="_id" user-id=" <%= user._id %>">Update
                                         Information</button>
