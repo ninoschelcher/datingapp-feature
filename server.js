@@ -53,6 +53,7 @@ app
   .get('/', allSteps)
   // .get('/allsteps', allSteps)
   .get('/step2/:id', loadStep2)
+  .get('/accountconfirmation/:id', loadAccountConfirmation)
   .get('/step3/:id', loadStep3)
   .get('/step4/:id', loadStep4)
   .get('/step5/:id', loadStep5)
@@ -167,7 +168,6 @@ function getUserProfile(req, res, next) {
       next(err);
     } else {
       res.render('profile.ejs', { user: data, page: 'Profile' });
-      console.log(data.image[0]);
     }
   }
 }
@@ -240,7 +240,13 @@ function allSteps(req,res) {
   res.render('allsteps', {
     page: 'Steps'
   });
+}
 
+function loadAccountConfirmation(req,res) {
+  res.render('accountconfirmation', {
+    page: 'Account Confirmation',
+    user: req.session.user
+  })
 }
 
 function submitAllSteps(req,res) {
@@ -264,7 +270,7 @@ function submitAllSteps(req,res) {
       next(err);
     } else {
       req.session.user._id = data.insertedId
-      res.redirect('/profile/' + req.session.user._id);
+      res.redirect('/accountconfirmation/' + req.session.user._id);
     }
   }
 }

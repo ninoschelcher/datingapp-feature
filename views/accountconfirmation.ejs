@@ -1,0 +1,25 @@
+<%- include ("partials/head"); %>
+<header>
+    <nav>
+        <a href="/"><img src="../images/logo2.png" alt=""></a>
+    </nav>
+</header>
+
+<body class="steps confirmation">
+
+    <section>
+        <article>
+            <img src="../uploads/<%= user.image[1].filename %>" alt="">
+            <h1>Thanks
+                <%= user.firstname %>!</h1>
+            <p>Woopwoop, thanks for telling us more about yourself and congrats for setting up your profile, you're now
+                ready to make full use of our application
+                and find your new love.
+            </p>
+            <p>
+                <a href=" /profile/<%= user._id %>">Check out your profile</a>
+            </p>
+            <article>
+    </section>
+
+    <%- include ("partials/footer.ejs"); %>

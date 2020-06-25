@@ -359,7 +359,7 @@ body#login>section a:last-of-type {
     background-color: transparent;
 }
 
-.introduction section button:last-of-type::after {
+.introduction section button:last-of-type::after, .confirmation a::after {
     content: '\f30b';
     position: absolute;
     display: block;
@@ -768,6 +768,10 @@ body#login>section a:last-of-type {
     bottom: 0;
 }
 
+.confirmation {
+    text-align: center;
+}
+
 .steps.step2 .progressBar {
     width: 20%;
 }
@@ -890,7 +894,7 @@ nav#navsteps {
     flex-direction: column;
 }
 
-.dogpicpreview, .profilepicpreview {
+.dogpicpreview, .profilepicpreview, .confirmation section img {
     width: 170px;
     border-radius: 100%;
     margin: 0 auto;
@@ -907,6 +911,10 @@ nav#navsteps {
     display: flex;
     flex-direction: column;
     margin-top: 1em;
+}
+
+.allstep3 article>p:first-of-type {
+    margin: 0;
 }
 
 input.invalid {
@@ -966,11 +974,22 @@ input.valid {
 
 .allprogressBar {
     position: absolute;
-    background-color: var(--orange);
+    background-color: var(--steel-blue);
     height: 100%;
     width: 0%;
     border-radius: 10px 10px 0 0;
     transition: all 0.4s ease;
+}
+
+.confirmation p:last-of-type {
+    margin-top: 2em;
+}
+
+.confirmation a {
+    color: var(--orange);
+    text-decoration: none;
+    position: relative;
+    font-size: 1em;
 }
 
 @media only screen and (max-width:1440px) {
