@@ -68,7 +68,7 @@ const showStep = (currentStep) => {
   } else {
     previousStep.style.display = "block";
   }
-  if (currentStep == (stepTab.length - 1)) {
+  if (currentStep == 4) {
     nextStep.innerHTML = "Submit";
   } else {
     nextStep.innerHTML = "Next Step";
