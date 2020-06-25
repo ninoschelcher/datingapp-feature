@@ -7,6 +7,7 @@
 
 <body id="allstepsbody">
     <div id="allsteps">
+
         <form action="/submitallsteps" method="POST" enctype="multipart/form-data" id="submitallsteps">
             <div class="steptab">
                 <div class="allprogress">
@@ -16,14 +17,16 @@
                     <div>
                         <p>Step 1/5</p>
                         <h1>Hi 👋 Tell us about yourself..</h1>
-                        <p>Welcome! Thanks for signing up for MeetYou This is the application to find your match based
+                        <p>Welcome! Thanks for signing up for MeetYou This is the application to find your match
+                            based
                             on
                             person
                             and
                             the dogs you like.
                         </p>
                         <p>
-                            To get to know you better we've prepared a few steps with questions you can answer so we can
+                            To get to know you better we've prepared a few steps with questions you can answer so we
+                            can
                             set
                             up
                             your
@@ -97,7 +100,7 @@
                             </div>
                             <div>
                                 <label for="dogname">Name of your dog</label>
-                                <input type="text" autocomplete="off" name="dogname" id="dogname">
+                                <input required type="text" autocomplete="off" name="dogname" id="dogname">
                             </div>
                         </article>
                     </article>
@@ -118,18 +121,18 @@
                         <article>
                             <div id="firsthobby">
                                 <label for="hobbies">Hobby 1</label>
-                                <input type="text" autocomplete="off" name="hobbies" id="hobbies">
+                                <input required type="text" autocomplete="off" name="hobbies" id="hobbies">
                             </div>
                             <div class="hobbies">
                                 <label for="hobbies">Hobby 2</label>
-                                <input type="text" autocomplete="off" name="hobbies" id="hobbies">
+                                <input required type="text" autocomplete="off" name="hobbies" id="hobbies">
                             </div>
                             <div class="hobbies">
                                 <label for="hobbies">Hobby 3</label>
-                                <input type="text" autocomplete="off" name="hobbies" id="hobbies">
+                                <input required type="text" autocomplete="off" name="hobbies" id="hobbies">
                             </div>
                             <label for="description">Describe yourself</label>
-                            <textarea name="description" rows="5" cols="20" id="description"
+                            <textarea required name="description" rows="5" cols="20" id="description"
                                 placeholder="What should other people know about you?"></textarea>
                         </article>
                     </article>
@@ -145,7 +148,8 @@
                         <p>Step 4/5</p>
                         <h1>Dog Scenario 🐶</h1>
                         <p>
-                            You signed up for this platform cause you like dogs, and you want to find love. If you had
+                            You signed up for this platform cause you like dogs, and you want to find love. If you
+                            had
                             to
                             choose
                             one
@@ -191,7 +195,7 @@
                             <p><img class="profilepicpreview" /></p>
                             <div>
                                 <label for="profilepicture">Upload a picture of yourself</label>
-                                <input type="file" name="image" id="profilepicture" accept=image/*>
+                                <input required type="file" name="image" id="profilepicture" accept=image/*>
                             </div>
                             <button id="allstepssubmit">Submit</button>
                         </article>

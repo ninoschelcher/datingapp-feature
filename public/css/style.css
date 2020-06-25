@@ -816,8 +816,8 @@ body#login>section a:last-of-type {
 }
 
 .steptab {
-    display: block;
-    margin: 1em 0;
+    margin: 1em auto;
+    width: 80%;
     position: relative;
 }
 
@@ -836,7 +836,7 @@ body#login>section a:last-of-type {
 
 #allsteps nav {
     background-color: #fff;
-    width: 80%;
+    width: 64%;
     border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: center;
@@ -950,10 +950,6 @@ input.valid {
 .inputerror.invalid {
     display: block;
     color: red;
-}
-
-.inputerror.valid {
-    display: none;
 }
 
 .allprogress {

@@ -85,16 +85,17 @@ const validateForm = () => {
   for (i = 0; i < inputs.length; i++) {
     if (inputs[i].value == "") {
       valid = false;
-      inputs[i].className += " invalid";
+      inputs[i].classList.add("invalid");
     } else {
-      inputs[i].className += " valid";
+      inputs[i].classList.remove("invalid");
     }
   }
-    return valid; 
-  }
+  return valid; 
+}
 
 nextStep.addEventListener('click', function(){changeStep(1)});
 previousStep.addEventListener('click', function(){changeStep(-1)});
+
 showStep(currentTab); 
 
 
