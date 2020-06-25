@@ -651,6 +651,7 @@ body#login>section a:last-of-type {
     background-color: transparent;
     border: 2px solid var(--orange);
     padding: .5em 1em;
+    color: var(--orange);
 }
 
 .profile form div:last-of-type {

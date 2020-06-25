@@ -189,6 +189,8 @@ function previewUserProfile(req, res, next) {
 
 // Function that updates the fields from the profile page //
 function updateUserProfile(req, res, next) {
+
+  if(req.file) {
   db.collection('users').updateOne({ 
     _id: ObjectID(req.body._id) },
     {
@@ -198,13 +200,30 @@ function updateUserProfile(req, res, next) {
         lastname: req.body.lastname,
         age: req.body.age,
         gender: req.body.gender,
-        profilepic: req.file ? req.file.filename : null,
+        'image.1': req.file,
         preferredgender: req.body.preferredgender,
         description: req.body.description,
         hobbies: req.body.hobbies,
         dogname: req.body.dogname,
       },
     }, updateUser);
+  } else {
+      db.collection('users').updateOne({ 
+        _id: ObjectID(req.body._id) },
+        {
+          $set: {
+            id: req.body.username,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            age: req.body.age,
+            gender: req.body.gender,
+            preferredgender: req.body.preferredgender,
+            description: req.body.description,
+            hobbies: req.body.hobbies,
+            dogname: req.body.dogname,
+          },
+        }, updateUser);
+  }
 
   function updateUser(err) {
     if (err) {

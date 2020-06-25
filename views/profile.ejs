@@ -11,11 +11,12 @@
                         <h2>Basic Information</h2>
                         <form action="/updateuser" id="information" method="POST" enctype="multipart/form-data">
                                 <div id="change-profipic">
-                                        <p id="profilepictures"><img src="../uploads/<%= user.image[1].filename %>"
+                                        <p id="profilepictures"><img id="ownprofilepic"
+                                                        src="../uploads/<%= user.image[1].filename %>"
                                                         alt="picture of user"></p>
 
-                                        <label for="profilepicture">Change your profilepicture</label>
-                                        <input type="file" name="profilepicture" id="profilepicture" accept=image/*
+                                        <label for="ownprofilepicchange">Change your profilepicture</label>
+                                        <input type="file" name="profilepicture" id="ownprofilepicchange" accept=image/*
                                                 value="<%= user._id %>">
 
                                 </div>
