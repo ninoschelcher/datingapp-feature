@@ -2,17 +2,14 @@
 
 const profilePicture = document.querySelector('#change-profipic');
 const editProfilePicture = document.querySelector('#changeimage');
-const secondButton = document.querySelector("#step2button");
-const thirdButton = document.querySelector("#step3button");
-const fourthButton = document.querySelector("#step4button");
-const fifthButton = document.querySelector("#step5button");
-
+const dogPicInput = document.querySelector("#dogpicture");
 const dogPicPreview = document.querySelector(".dogpicpreview");
 const profilePicPreview = document.querySelector(".profilepicpreview");
 const profilePicInput = document.querySelector("#profilepicture");
-const dogPicInput = document.querySelector("#dogpicture");
+
 const previousStep = document.querySelector("#previousStep");
 const nextStep = document.querySelector("#nextStep");
+
 const navSteps = document.querySelector("#navsteps");
 const stepTab = document.querySelectorAll(".steptab");
 const stepsSubmit = document.querySelector("#allstepssubmit");
