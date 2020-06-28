@@ -7,14 +7,14 @@ const profilePicPreview = document.querySelector(".profilepicpreview");
 const profilePicInput = document.querySelector("#profilepicture");
 
 // Query selectors for progressive disclosure steps
-const previousStep = document.querySelector("#previousStep");
-const nextStep = document.querySelector("#nextStep");
+const previousStepButton = document.querySelector("#previousStep");
+const nextStepButton = document.querySelector("#nextStep");
 const navSteps = document.querySelector("#navsteps");
 const stepsSubmit = document.querySelector("#allstepssubmit");
 const stepTab = document.querySelectorAll(".steptab");
 const progressBars = document.querySelectorAll(".allprogress");
 
-// Eventlisteners for image preview inputs //
+// Eventlisteners for image preview inputs
 dogPicInput.addEventListener('change', (event) => {
     dogPicPreview.src = URL.createObjectURL(event.target.files[0]);
 });
@@ -23,18 +23,18 @@ profilePicInput.addEventListener('change', (event) => {
     profilePicPreview.src = URL.createObjectURL(event.target.files[0]);
 });
 
-// Make sure progress bar shows when js is turned on & all setps are automatically hidden
+// Make sure progress bar shows when JS is turned on & all steps are hidden by defualt.
 progressBars.forEach(progress => progress.style.display = "block");
 stepTab.forEach(step => step.style.display = "none");
 
-// Hide non-js submit button when js is on & show new navigation items
+// Hide 'normal' submit button and turn on new navigation with next/previous step.
 stepsSubmit.style.display = "none";
 navSteps.style.display = "flex";
 
-// Set currenttab to 0 so the first step shows when loaded, its important that this is at 0 cause you want the steps to start at 0 since its a nodelist (array)
+// Set the current step number to 0 so the first step shows when loaded, its important that this is at 0 cause you want the steps to start at 0 since its a nodelist.
 let currentStepNumber = 0; 
 
-// Function to show current step when the button Next Step/Previous Step is hit and updates nav & progressbar if necessary
+// Function to show current step when the button Next Step/Previous Step is hit and updates nav & progressbar if necessary.
 const showStep = (currentStep) => {
   const progressBar = stepTab[currentStep].querySelectorAll(".allprogressBar");
 
@@ -55,14 +55,14 @@ const showStep = (currentStep) => {
   });
 
   if (currentStep == 0) {
-    previousStep.style.display = "none";
+    previousStepButton.style.display = "none";
   } else {
-    previousStep.style.display = "block";
+    previousStepButton.style.display = "block";
   }
   if (currentStep == 4) {
-    nextStep.innerHTML = "Submit";
+    nextStepButton.innerHTML = "Submit";
   } else {
-    nextStep.innerHTML = "Next";
+    nextStepButton.innerHTML = "Next";
   }
 }
 
@@ -92,8 +92,8 @@ const validateForm = () => {
   return valid; 
 }
 // Eventlisteners for the nav buttons when they are hit, this starts the process.
-nextStep.addEventListener('click', function(){changeStep(1)});
-previousStep.addEventListener('click', function(){changeStep(-1)});
+nextStepButton.addEventListener('click', function(){changeStep(1)});
+previousStepButton.addEventListener('click', function(){changeStep(-1)});
 
-// Call the showstep function with the parameter 0 which is declared above all functions
+// Call the showstep function with the parameter 0, this makes sure the first step shows on load.
 showStep(currentStepNumber); 
