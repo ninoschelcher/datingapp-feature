@@ -10,8 +10,8 @@ const profilePicInput = document.querySelector("#profilepicture");
 const previousStep = document.querySelector("#previousStep");
 const nextStep = document.querySelector("#nextStep");
 const navSteps = document.querySelector("#navsteps");
-const stepTab = document.querySelectorAll(".steptab");
 const stepsSubmit = document.querySelector("#allstepssubmit");
+const stepTab = document.querySelectorAll(".steptab");
 const progressBars = document.querySelectorAll(".allprogress");
 
 // Eventlisteners for image preview inputs //
@@ -31,10 +31,10 @@ stepTab.forEach(step => step.style.display = "none");
 stepsSubmit.style.display = "none";
 navSteps.style.display = "flex";
 
-// Set currenttab to 0 so the first step shows
-let currentTab = 0; 
+// Set currenttab to 0 so the first step shows when loaded, its important that this is at 0 cause you want the steps to start at 0 since its a nodelist (array)
+let currentStepNumber = 0; 
 
-// Function to show current step when the button Next Step is hit and updates nav & progressbar if necessary
+// Function to show current step when the button Next Step/Previous Step is hit and updates nav & progressbar if necessary
 const showStep = (currentStep) => {
   const progressBar = stepTab[currentStep].getElementsByClassName("allprogressBar");
 
@@ -66,22 +66,21 @@ const showStep = (currentStep) => {
   }
 }
 
-// Function to validate if forms arent empty and checking if you can go to the next step or if you are at the last stap which means submit
+// Function to validate if forms arent empty and checking if you can go to the next step or if you are at the last stap which means submit.
 const changeStep = (nextStep) => {
     if (nextStep == 1 && !validateForm()) return false;
-    stepTab[currentTab].style.display = "none";
-    currentTab = currentTab + nextStep;
-    if (currentTab >= stepTab.length) {
+    stepTab[currentStepNumber].style.display = "none";
+    currentStepNumber = currentStepNumber + nextStep;
+    if (currentStepNumber >= stepTab.length) {
         document.getElementById("submitallsteps").submit();
-        return false;
       }
-    showStep(currentTab);
+    showStep(currentStepNumber);
   }
 
-// Function that checks if form input are empty, based on that change styling of the inputs, its like a custom error
+// Function that checks if form input are empty, based on that change styling of the inputs, its like a custom error validation.
 const validateForm = () => {
   let valid = true;
-  const inputs = stepTab[currentTab].getElementsByTagName("input");
+  const inputs = stepTab[currentStepNumber].getElementsByTagName("input");
   for (i = 0; i < inputs.length; i++) {
     if (inputs[i].value == "") {
       valid = false;
@@ -92,10 +91,9 @@ const validateForm = () => {
   }
   return valid; 
 }
-
 // Eventlisteners for the nav buttons when they are hit, this starts the process.
 nextStep.addEventListener('click', function(){changeStep(1)});
 previousStep.addEventListener('click', function(){changeStep(-1)});
 
 // Call the showstep function with the parameter 0 which is declared above all functions
-showStep(currentTab); 
+showStep(currentStepNumber); 
