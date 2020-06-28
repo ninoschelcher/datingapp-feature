@@ -36,23 +36,23 @@ let currentStepNumber = 0;
 
 // Function to show current step when the button Next Step/Previous Step is hit and updates nav & progressbar if necessary
 const showStep = (currentStep) => {
-  const progressBar = stepTab[currentStep].getElementsByClassName("allprogressBar");
+  const progressBar = stepTab[currentStep].querySelectorAll(".allprogressBar");
 
   stepTab[currentStep].style.display = "block";
 
-  for(i = 0; i < progressBar.length; i++) {
+  progressBar.forEach(progress => {
     if(currentStep == 0) {
-      progressBar[i].style.width = "0%";
+      progress.style.width = "0%";
     } else if (currentStep == 1) {
-      progressBar[i].style.width = "20%";
+      progress.style.width = "20%";
     } else if (currentStep == 2) {
-      progressBar[i].style.width = "40%";
+      progress.style.width = "40%";
     } else if (currentStep == 3) {
-      progressBar[i].style.width = "60%";
+      progress.style.width = "60%";
     } else if (currentStep == 4) {
-      progressBar[i].style.width = "80%";
+      progress.style.width = "80%";
     } 
-  }
+  });
 
   if (currentStep == 0) {
     previousStep.style.display = "none";
@@ -62,7 +62,7 @@ const showStep = (currentStep) => {
   if (currentStep == 4) {
     nextStep.innerHTML = "Submit";
   } else {
-    nextStep.innerHTML = "Next Step";
+    nextStep.innerHTML = "Next";
   }
 }
 
