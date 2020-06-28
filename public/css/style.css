@@ -904,7 +904,7 @@ nav#navsteps {
 
 .allintroduction {
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row;
     padding-top: 1em;
 }
 
@@ -1012,17 +1012,20 @@ input.valid {
 }
 
 @media only screen and (max-width:992px) {
-    .introduction>section, .steps>section {
+    .introduction>section, .steps>section, #allsteps section {
         flex-direction: column;
     }
     .steps li {
         flex: 0 45%;
     }
-    .introduction>section>div {
+    .introduction>section>div, .allintroduction>div {
         width: 100% !important;
     }
-    .introduction>section div:first-of-type p:last-of-type {
+    .introduction>section div:first-of-type p:last-of-type, .allintroduction>div:first-of-type p:last-of-type {
         max-width: 100%;
+    }
+    .profile>section {
+        max-width: 85%;
     }
 }
 
